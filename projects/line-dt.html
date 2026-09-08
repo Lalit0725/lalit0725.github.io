@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Line DT — Industrial Process Twin &amp; PLC Bridge | Lalit M.</title>
+  <meta name="description" content="An end-to-end industrial digital twin connecting Modbus TCP and OPC UA telemetry through a Python UNS bridge to a real-time Unity 6 process twin with modular UI Toolkit HUD.">
+  <meta name="theme-color" content="#0b1120">
+  <link rel="canonical" href="https://lalit0725.github.io/projects/line-dt.html">
+  <meta property="og:title" content="Line DT — Industrial Process Twin &amp; PLC Bridge | Lalit M.">
+  <meta property="og:description" content="An end-to-end industrial digital twin connecting Modbus TCP and OPC UA telemetry through a Python UNS bridge to a real-time Unity 6 process twin with modular UI Toolkit HUD.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lalit0725.github.io/projects/line-dt.html">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/site.css">
+</head>
+<body class="bg-surface font-sans antialiased text-slate-200">
+  <canvas id="ambient-dither" aria-hidden="true"></canvas>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <script>document.documentElement.classList.add("js");</script>
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-3 focus:z-50 focus:bg-surface focus:px-4 focus:py-2 focus:text-sm focus:text-accent">Skip to content</a>
+
+  <header class="sticky top-0 z-40 border-b border-slate-800 bg-surface/95 backdrop-blur">
+    <nav aria-label="Project navigation" class="mx-auto flex max-w-[88rem] items-center justify-between px-4 py-4 sm:px-6">
+      <a href="../index.html#work" class="font-mono text-sm font-semibold tracking-tight text-white">Lalit M.</a>
+      <a href="../index.html#work" class="font-mono text-xs text-slate-400 transition-colors hover:text-accent">← Back to work</a>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1" class="case-study-main case-study-dense mx-auto max-w-[88rem] px-4 sm:px-6">
+
+    <header class="relative border-b border-slate-800 section">
+      <p class="section-title" data-eyebrow="Industrial Digital Twin · Real-Time 3D"></p>
+      <h1 class="mt-5 max-w-3xl text-h1 font-semibold leading-tight tracking-tight text-white">Line DT — Process Twin &amp; PLC Bridge</h1>
+      <p class="mt-4 max-w-3xl text-body-lg leading-relaxed text-slate-300">
+        Live Modbus TCP and OPC UA telemetry, normalized by a Python UNS bridge, driving a real-time Unity 6 mixing skid with optimized fluid shaders and a modular UI Toolkit SCADA HUD.
+      </p>
+
+      <div class="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-xs text-slate-400">
+        <div><span class="text-slate-500">Role:</span> <span class="text-slate-200">Technical Lead · Unity &amp; Digital Twin Engineer</span></div>
+        <div><span class="text-slate-500">Timeframe:</span> <span class="text-slate-200">2023–2024</span></div>
+        <div><span class="text-slate-500">Architecture:</span> <span class="text-slate-200">Edge Gateway + 3D Simulation + SCADA UI</span></div>
+      </div>
+
+      <div class="mt-6 flex flex-wrap gap-2" aria-label="Technology used">
+        <span class="chip">Unity 6</span>
+        <span class="chip">URP</span>
+        <span class="chip">Python asyncio</span>
+        <span class="chip">Unified Namespace (UNS)</span>
+        <span class="chip">Modbus TCP</span>
+        <span class="chip">OPC UA</span>
+        <span class="chip">UI Toolkit</span>
+        <span class="chip">ISA-18.2</span>
+        <span class="chip">WebSockets</span>
+      </div>
+    </header>
+
+
+
+    <nav class="toc" aria-label="On this page">
+      <a class="toc-link" href="#video-walkthrough">Video walkthrough</a>
+      <a class="toc-link" href="#operational-states">States inspector</a>
+      <a class="toc-link" href="#architecture">Architecture</a>
+      <a class="toc-link" href="#why-uns">UNS + ISA-95 + ISA-18.2</a>
+      <a class="toc-link" href="#performance">Performance</a>
+      <a class="toc-link" href="#ui-toolkit">UI Toolkit HUD</a>
+      <a class="toc-link" href="#technology">Technology</a>
+    </nav>
+
+    <div class="divide-y divide-slate-800">
+
+      <section class="card my-8 border-l-4 border-l-accent max-w-5xl" aria-labelledby="takeaway">
+        <p class="font-mono text-xs uppercase tracking-wider text-accent">What this means for engineering &amp; operations</p>
+        <h2 id="takeaway" class="mt-2 max-w-4xl text-h3 font-semibold text-white leading-snug">
+          When raw PLC registers obscure physical context, an end-to-end twin bridges OT and IT, turning fragmented signals into a semantic Unified Namespace and an intuitive 3D operational model.
+        </h2>
+        <dl class="mt-6 grid grid-cols-2 gap-x-6 gap-y-5 border-t border-slate-800 pt-5 lg:grid-cols-4">
+          <div>
+            <dt class="font-mono text-xs uppercase tracking-wider text-slate-500">Render rate</dt>
+            <dd class="mt-1 text-h3 font-semibold text-accent">60+ FPS</dd>
+            <dd class="mt-0.5 text-sm text-slate-400">Decoupled from 50–100 ms telemetry</dd>
+          </div>
+          <div>
+            <dt class="font-mono text-xs uppercase tracking-wider text-slate-500">Memory</dt>
+            <dd class="mt-1 text-h3 font-semibold text-accent">Efficient</dd>
+            <dd class="mt-0.5 text-sm text-slate-400">Shared MaterialPropertyBlock shaders</dd>
+          </div>
+          <div>
+            <dt class="font-mono text-xs uppercase tracking-wider text-slate-500">Protocols</dt>
+            <dd class="mt-1 text-h3 font-semibold text-accent">2 → 1</dd>
+            <dd class="mt-0.5 text-sm text-slate-400">Modbus + OPC UA → one UNS stream</dd>
+          </div>
+          <div>
+            <dt class="font-mono text-xs uppercase tracking-wider text-slate-500">Alarms</dt>
+            <dd class="mt-1 text-h3 font-semibold text-accent">ISA-18.2</dd>
+            <dd class="mt-0.5 text-sm text-slate-400">Lifecycle states with suppression</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section id="video-walkthrough" class="section" aria-labelledby="video-heading">
+        <h2 id="video-heading" class="section-title" data-eyebrow="Video Walkthrough">Live process twin in action</h2>
+        <p class="prose-body -mt-5 mb-6">
+          End-to-end run in Unity 6: live telemetry from the Python PLC bridge drives procedural fluid dynamics, HUD widgets, and a remote emergency shutdown.
+        </p>
+
+        <div class="overflow-hidden rounded-card border border-slate-800 bg-slate-950 shadow-2xl">
+          <div class="relative aspect-video w-full bg-slate-950">
+            <video id="twin-video" src="../assets/videos/LineDT.mp4" poster="../assets/images/line-dt/twin-filling-state.jpg" controls playsinline preload="auto" class="h-full w-full object-cover">
+              Your browser does not support the video element.
+            </video>
+          </div>
+
+          <div class="border-t border-slate-800 bg-surface-elevated px-4 py-3 sm:px-6 flex flex-wrap items-center justify-between gap-3">
+            <span class="font-mono text-xs text-slate-400">Jump to operational milestones:</span>
+            <div class="flex flex-wrap gap-2" role="group" aria-label="Video chapter timeline">
+              <button type="button" class="video-jump-btn chip hover:border-accent hover:text-white transition-colors cursor-pointer" data-time="5">
+                ▶ 0:05 Vessel Filling
+              </button>
+              <button type="button" class="video-jump-btn chip hover:border-accent hover:text-white transition-colors cursor-pointer" data-time="42">
+                ▶ 0:42 Vortex Agitation
+              </button>
+              <button type="button" class="video-jump-btn chip hover:border-accent hover:text-white transition-colors cursor-pointer" data-time="72">
+                ▶ 1:12 Vessel Discharge
+              </button>
+              <button type="button" class="video-jump-btn chip hover:border-accent hover:text-white transition-colors cursor-pointer" data-time="105">
+                ▶ 1:45 Emergency E-STOP
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="operational-states" class="section" aria-labelledby="states-heading">
+        <h2 id="states-heading" class="section-title" data-eyebrow="Visual Evidence">Operational states inspector</h2>
+        <p class="prose-body -mt-5 mb-6">
+          Select an operating state to inspect the visual twin capture and its live telemetry parameters.
+        </p>
+
+        <div class="flex flex-wrap gap-2 mb-6" role="tablist" aria-label="Operational states selector">
+          <button type="button" class="state-btn chip active border-accent text-white hover:border-accent hover:text-white transition-colors cursor-pointer" data-state="filling" aria-selected="true">
+            01. Batch Filling State
+          </button>
+          <button type="button" class="state-btn chip hover:border-accent hover:text-white transition-colors cursor-pointer" data-state="discharging" aria-selected="false">
+            02. Vessel Discharging State
+          </button>
+          <button type="button" class="state-btn chip hover:border-accent hover:text-white transition-colors cursor-pointer" data-state="alarm" aria-selected="false">
+            03. Emergency Stop (E-STOP)
+          </button>
+        </div>
+
+        <div class="overflow-hidden rounded-card border border-slate-800 bg-slate-950 shadow-2xl">
+          <div class="relative aspect-video w-full bg-slate-950">
+            <img id="state-img" src="../assets/images/line-dt/twin-filling-state.jpg" alt="Unity process twin in batch filling state" width="1920" height="1080" class="w-full h-full object-cover">
+            <div id="state-badge" class="absolute top-4 left-4 rounded-full bg-slate-900/90 border border-slate-700 px-3 py-1 font-mono text-xs text-accent backdrop-blur-md">
+              STATE: BATCH_FILLING
+            </div>
+          </div>
+
+          <div class="border-t border-slate-800 bg-surface-elevated p-5">
+            <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 font-mono text-xs">
+              <div class="border-b sm:border-b-0 sm:border-r border-slate-800 pb-2 sm:pb-0 sm:pr-4">
+                <span class="text-slate-400 block text-xs">Tank Liquid Level</span>
+                <span id="tag-level" class="text-white font-semibold text-base">680.5 Liters</span>
+              </div>
+              <div class="border-b sm:border-b-0 sm:border-r border-slate-800 pb-2 sm:pb-0 sm:pr-4">
+                <span class="text-slate-400 block text-xs">Agitator Motor RPM</span>
+                <span id="tag-rpm" class="text-white font-semibold text-base">320.0 RPM</span>
+              </div>
+              <div class="border-b sm:border-b-0 sm:border-r border-slate-800 pb-2 sm:pb-0 sm:pr-4">
+                <span class="text-slate-400 block text-xs">Valves (Inlet / Drain)</span>
+                <span id="tag-valves" class="text-green-400 font-semibold text-base">OPEN / CLOSED</span>
+              </div>
+              <div>
+                <span class="text-slate-400 block text-xs">ISA-18.2 State</span>
+                <span id="tag-alarm-state" class="text-green-400 font-semibold text-base">NORMAL</span>
+              </div>
+            </div>
+
+            <div class="mt-4 border-t border-slate-800/80 pt-3 text-sm text-slate-300 leading-relaxed">
+              <span class="font-semibold text-white">Observation: </span>
+              <span id="state-desc">The fill valve opens and liquid rises inside the vessel. The LiquidVolumeBinder updates the procedural shader fill height while HUD metric cards track real-time volume.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="architecture" class="section" aria-labelledby="arch-heading">
+        <h2 id="arch-heading" class="section-title" data-eyebrow="Architecture">Three-tier OT-to-3D pipeline</h2>
+        <p class="prose-body -mt-5 mb-8">
+          Field protocols are isolated behind an asynchronous Python edge broker that normalizes every signal into one semantic stream for the Unity twin.
+        </p>
+
+        <div class="grid gap-5 md:grid-cols-3">
+          <div class="card flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="font-mono text-xs font-semibold text-accent">TIER 1</span>
+                <span class="chip text-xs py-0.5">Physical OT</span>
+              </div>
+              <h3 class="mt-3 text-base font-semibold text-white">Industrial Protocols</h3>
+              <div class="mt-4 space-y-2.5">
+                <div class="rounded border border-slate-800/80 bg-surface p-3">
+                  <div class="font-mono text-sm font-medium text-accent">Modbus TCP (:5020)</div>
+                  <p class="text-sm text-slate-400 mt-1">50–100 ms polling for motor RPM, batch count, fill/drain valves, and fault registers.</p>
+                </div>
+                <div class="rounded border border-slate-800/80 bg-surface p-3">
+                  <div class="font-mono text-sm font-medium text-accent">OPC UA (:4840)</div>
+                  <p class="text-sm text-slate-400 mt-1">Report-by-exception subscriptions for vessel levels and motor temperatures.</p>
+                </div>
+              </div>
+            </div>
+            <div class="mt-5 border-t border-slate-800/80 pt-3 font-mono text-xs text-slate-500">
+              Raw binary &amp; numeric registers
+            </div>
+          </div>
+
+          <div class="card border-accent/40 bg-surface-elevated flex flex-col justify-between shadow-[0_0_20px_rgba(34,211,238,0.06)]">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="font-mono text-xs font-semibold text-accent">TIER 2</span>
+                <span class="chip border-accent/40 text-accent text-xs py-0.5">Python Asyncio</span>
+              </div>
+              <h3 class="mt-3 text-base font-semibold text-white">PLC Bridge Middleware</h3>
+              <div class="mt-4 space-y-2.5">
+                <div class="rounded border border-slate-800/80 bg-surface p-3">
+                  <div class="font-mono text-sm font-medium text-accent">UNS + ISA-95 + ISA-18.2</div>
+                  <p class="text-sm text-slate-400 mt-1">Semantic topic paths, engineering units, alarm priority and suppression.</p>
+                </div>
+                <div class="rounded border border-slate-800/80 bg-surface p-3">
+                  <div class="font-mono text-sm font-medium text-accent">WebSocket Server (:8765)</div>
+                  <p class="text-sm text-slate-400 mt-1">JSON telemetry frames plus a dynamic metadata handshake.</p>
+                </div>
+              </div>
+            </div>
+            <div class="mt-5 border-t border-slate-800/80 pt-3 font-mono text-xs text-accent">
+              Normalized semantic stream
+            </div>
+          </div>
+
+          <div class="card flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="font-mono text-xs font-semibold text-accent">TIER 3</span>
+                <span class="chip text-xs py-0.5">Unity 6 / URP</span>
+              </div>
+              <h3 class="mt-3 text-base font-semibold text-white">3D Process Twin &amp; HUD</h3>
+              <div class="mt-4 space-y-2.5">
+                <div class="rounded border border-slate-800/80 bg-surface p-3">
+                  <div class="font-mono text-sm font-medium text-accent">UNSDataStore Bus</div>
+                  <p class="text-sm text-slate-400 mt-1">In-memory plant snapshot; tag registries built from handshake metadata.</p>
+                </div>
+                <div class="rounded border border-slate-800/80 bg-surface p-3">
+                  <div class="font-mono text-sm font-medium text-accent">Procedural Shader Binders</div>
+                  <p class="text-sm text-slate-400 mt-1">60+ FPS lerp smoothing and MaterialPropertyBlock shader driving.</p>
+                </div>
+                <div class="rounded border border-slate-800/80 bg-surface p-3">
+                  <div class="font-mono text-sm font-medium text-accent">Modular UI Toolkit HUD</div>
+                  <p class="text-sm text-slate-400 mt-1">Metric cards, OEE gauges, alarm deck, and remote control deck.</p>
+                </div>
+              </div>
+            </div>
+            <div class="mt-5 border-t border-slate-800/80 pt-3 font-mono text-xs text-slate-500">
+              60+ FPS spatial supervisory view
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-5 rounded-card border border-slate-800 bg-surface-elevated/60 p-4 flex flex-wrap items-center justify-between gap-3 text-sm">
+          <div class="flex items-center gap-2 text-slate-300">
+            <span class="text-accent font-mono font-medium">Supervisory Control:</span>
+            <span>Operator commands (Remote E-STOP, valve actuation) serialize from the ControlDeck and dispatch back to the Python bridge.</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="why-uns" class="section" aria-labelledby="uns-heading">
+        <h2 id="uns-heading" class="section-title" data-eyebrow="Standards">UNS · ISA-95 · ISA-18.2</h2>
+        <p class="prose-body -mt-5">
+          Hardcoded register addresses (<code>40001</code>, <code>ns=2;s=Mixer.AgitatorRPM</code>) break every client when a PLC is rewired, and naive thresholds flood operators with alarms. The bridge maps registers into a
+          <span class="term-wrapper">
+            <button type="button" class="term-trigger" aria-haspopup="dialog" aria-expanded="false">
+              <span>Unified Namespace (UNS) &amp; ISA-95</span>
+              <span class="term-icon" aria-hidden="true">ⓘ</span>
+            </button>
+            <span role="tooltip" class="term-popover">
+              <strong class="font-semibold text-white block mb-1 text-xs">Unified Namespace (UNS) &amp; ISA-95</strong>
+              An industrial architecture standard where all plant telemetry is organized into an open, semantic topic hierarchy (Enterprise → Site → Area → Line → Asset). Downstream systems subscribe to context-rich topics without depending on physical PLC memory addresses.
+              <span class="block mt-2 text-[11px] text-accent/90 border-t border-slate-800 pt-1.5">In Line DT: Decouples the 3D twin from PLC hardware, allowing hardware swaps without breaking visual bindings.</span>
+            </span>
+          </span>
+          hierarchy and runs an
+          <span class="term-wrapper">
+            <button type="button" class="term-trigger" aria-haspopup="dialog" aria-expanded="false">
+              <span>ISA-18.2</span>
+              <span class="term-icon" aria-hidden="true">ⓘ</span>
+            </button>
+            <span role="tooltip" class="term-popover">
+              <strong class="font-semibold text-white block mb-1 text-xs">ANSI/ISA-18.2 Alarm Standard</strong>
+              The global industrial benchmark for alarm management. Replaces simple threshold triggers with formal lifecycle states (Normal, Unacknowledged, Acknowledged, Suppressed) and requires context-aware filtering to prevent operator panic during plant upsets.
+              <span class="block mt-2 text-[11px] text-accent/90 border-t border-slate-800 pt-1.5">In Line DT: Suppresses false alarms (e.g. low-speed alarm during intentional machine stop).</span>
+            </span>
+          </span>
+          alarm engine, so the twin subscribes to meaningful topics and operators see prioritized alerts.
+        </p>
+
+        <div class="mt-8 grid gap-4 sm:grid-cols-2">
+          <div class="card border-red-950/40 bg-red-950/10">
+            <div class="flex items-center gap-2 font-mono text-sm font-semibold text-red-400">
+              <span>✕</span> Without UNS (Point-to-Point Coupling)
+            </div>
+            <p class="mt-3 text-sm leading-relaxed text-slate-300">
+              Clients hardcode raw memory registers. Any sensor rewire, address shift, or vendor swap breaks the 3D scene and forces a Unity rebuild.
+            </p>
+            <div class="mt-4 rounded border border-red-900/30 bg-slate-950/80 p-3 font-mono text-xs text-red-300/80">
+              Modbus Register: 40001 (raw int: 450)<br>
+              OPC UA Node: ns=2;s=Mixer_Subsystem.Tank_Lvl<br>
+              <span class="text-slate-500 mt-1 block">No engineering units, no limits, high fragility</span>
+            </div>
+          </div>
+
+          <div class="card border-accent/40 bg-accent/5">
+            <div class="flex items-center gap-2 font-mono text-sm font-semibold text-accent">
+              <span>✓</span> With Unified Namespace (ISA-95)
+            </div>
+            <p class="mt-3 text-sm leading-relaxed text-slate-300">
+              The bridge maps registers to semantic paths. Unity discovers tags, units, and ranges dynamically via the <code>METADATA_HANDSHAKE</code>.
+            </p>
+            <div class="mt-4 rounded border border-accent/20 bg-slate-950/80 p-3 font-mono text-xs text-accent">
+              Site/Area/MixingSkid/Mixer/MotorRPM<br>
+              Site/Area/MixingSkid/Tank/LiquidLevel<br>
+              <span class="text-slate-400 mt-1 block">Contextual payload: value, unit ("L"), min, max, quality</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="standards-grid mt-6">
+          <article class="card">
+            <h3 class="text-base font-semibold text-white">1. Lifecycle Management</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-300">
+              Alarms are tracked through standard lifecycle states (e.g., Unacknowledged, Acknowledged) so operators have clear visibility into active issues that need attention.
+            </p>
+          </article>
+          <article class="card">
+            <h3 class="text-base font-semibold text-white">2. Contextual Filtering</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-300">
+              The system prevents nuisance alerts by factoring in operational context, ensuring alarms are only raised when equipment is actually running unexpectedly out of bounds.
+            </p>
+          </article>
+          <article class="card">
+            <h3 class="text-base font-semibold text-white">3. Clear Prioritization</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-300">
+              Alerts are organized by severity (Critical, Warning, Info), driving both the UI indicators and the 3D stacklight to guide immediate operator focus.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="performance" class="section" aria-labelledby="perf-heading">
+        <h2 id="perf-heading" class="section-title" data-eyebrow="Architecture &amp; UX">Real-Time Performance &amp; Enterprise Interface</h2>
+        <p class="prose-body -mt-5 mb-8">
+          Network packets arrive at 50–100 ms intervals while the twin renders at 60+ FPS. To prevent stutter and memory allocations, we decoupled ingestion and rendering, pairing it with a responsive, modular UI Toolkit HUD.
+        </p>
+
+
+        
+        <div id="bento-stack">
+          <div class="bento-card" data-index="0">
+            <span class="font-mono text-xs text-accent mb-1.5 uppercase tracking-wider w-full block">Network</span>
+            <h3 class="font-semibold text-white text-base w-full">Target Caching</h3>
+            <p class="text-xs sm:text-sm text-slate-400 mt-1.5 leading-relaxed w-full">Immediate WebSockets updates without blocking render loop.</p>
+          </div>
+          <div class="bento-card" data-index="1">
+            <span class="font-mono text-xs text-accent mb-1.5 uppercase tracking-wider w-full block">State</span>
+            <h3 class="font-semibold text-white text-base w-full">Lerp Smoothing</h3>
+            <p class="text-xs sm:text-sm text-slate-400 mt-1.5 leading-relaxed w-full">Continuous 60+ FPS interpolation regardless of jitter.</p>
+          </div>
+          <div class="bento-card" data-index="2">
+            <span class="font-mono text-xs text-accent mb-1.5 uppercase tracking-wider w-full block">Memory</span>
+            <h3 class="font-semibold text-white text-base w-full">Efficient Shaders</h3>
+            <p class="text-xs sm:text-sm text-slate-400 mt-1.5 leading-relaxed w-full">MaterialPropertyBlock for zero-allocation batching.</p>
+          </div>
+          <div class="bento-card" data-index="3">
+            <span class="font-mono text-xs text-accent mb-1.5 uppercase tracking-wider w-full block">Architecture</span>
+            <h3 class="font-semibold text-white text-base w-full">Python UNS Bridge</h3>
+            <p class="text-xs sm:text-sm text-slate-400 mt-1.5 leading-relaxed w-full">Aggregates fragmented OT data into a unified stream.</p>
+          </div>
+          <div class="bento-card" data-index="4">
+            <span class="font-mono text-xs text-accent mb-1.5 uppercase tracking-wider w-full block">HUD</span>
+            <h3 class="font-semibold text-white text-base w-full">MetricCard</h3>
+            <p class="text-xs sm:text-sm text-slate-400 mt-1.5 leading-relaxed w-full">Formats units, shows quality, and applies ISA badges.</p>
+          </div>
+          <div class="bento-card" data-index="5">
+            <span class="font-mono text-xs text-accent mb-1.5 uppercase tracking-wider w-full block">HUD</span>
+            <h3 class="font-semibold text-white text-base w-full">OeePanel</h3>
+            <p class="text-xs sm:text-sm text-slate-400 mt-1.5 leading-relaxed w-full">Live OEE tracking: Availability, Performance, Quality.</p>
+          </div>
+          <div class="bento-card" data-index="6">
+            <span class="font-mono text-xs text-accent mb-1.5 uppercase tracking-wider w-full block">HUD</span>
+            <h3 class="font-semibold text-white text-base w-full">AlarmList</h3>
+            <p class="text-xs sm:text-sm text-slate-400 mt-1.5 leading-relaxed w-full">ISA-18.2 compliant priority-sorted alarm roster.</p>
+          </div>
+          <div class="bento-card" data-index="7">
+            <span class="font-mono text-xs text-accent mb-1.5 uppercase tracking-wider w-full block">Interaction</span>
+            <h3 class="font-semibold text-white text-base w-full">Control Deck</h3>
+            <p class="text-xs sm:text-sm text-slate-400 mt-1.5 leading-relaxed w-full">Bidirectional supervisory actions sent back via WebSockets.</p>
+          </div>
+        </div>
+        <p class="font-mono text-xs text-slate-500 text-center mt-2">Click or hover any module to highlight &amp; inspect</p>
+
+        <script>
+          (function() {
+            const stack = document.getElementById('bento-stack');
+            if (!stack) return;
+            const cards = Array.from(stack.querySelectorAll('.bento-card'));
+            const numCards = cards.length;
+            let activeIdx = -1;
+
+            function computeLayout() {
+              const availableWidth = stack.clientWidth || 800;
+              const maxSpread = Math.min(Math.max(availableWidth - 260, 160), 640);
+              const waveHeight = 18;
+
+              return cards.map((_, i) => {
+                const t = i / (numCards - 1);
+                const x = (t - 0.5) * maxSpread;
+                const angleRad = t * Math.PI * 2;
+                const y = Math.sin(angleRad) * waveHeight;
+                const rot = Math.cos(angleRad) * 7;
+                return { x, y, rot };
+              });
+            }
+
+            let baseTransforms = computeLayout();
+
+            const applyBase = () => {
+              if (activeIdx !== -1) return;
+              cards.forEach((card, i) => {
+                card.classList.remove('is-active');
+                const b = baseTransforms[i];
+                card.style.transform = `translateX(${b.x}px) translateY(${b.y}px) rotate(${b.rot}deg)`;
+                card.style.zIndex = i + 10;
+              });
+            };
+
+            const highlightCard = (targetIdx) => {
+              cards.forEach((card, i) => {
+                const b = baseTransforms[i];
+                if (i === targetIdx) {
+                  card.classList.add('is-active');
+                  card.style.transform = `translateX(${b.x}px) translateY(${b.y - 25}px) rotate(0deg) scale(1.12)`;
+                  card.style.zIndex = 60;
+                } else {
+                  card.classList.remove('is-active');
+                  const pushX = i < targetIdx ? -70 : 70;
+                  card.style.transform = `translateX(${b.x + pushX}px) translateY(${b.y + 8}px) rotate(${b.rot}deg)`;
+                  card.style.zIndex = i + 10;
+                }
+              });
+            };
+
+            applyBase();
+
+            cards.forEach((card, i) => {
+              card.addEventListener('mouseenter', () => {
+                if (activeIdx === -1) {
+                  highlightCard(i);
+                }
+              });
+
+              card.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (activeIdx === i) {
+                  activeIdx = -1;
+                  applyBase();
+                } else {
+                  activeIdx = i;
+                  highlightCard(i);
+                }
+              });
+            });
+
+            stack.addEventListener('mouseleave', () => {
+              if (activeIdx === -1) {
+                applyBase();
+              }
+            });
+
+            document.addEventListener('click', (e) => {
+              if (!stack.contains(e.target) && activeIdx !== -1) {
+                activeIdx = -1;
+                applyBase();
+              }
+            });
+
+            window.addEventListener('resize', () => {
+              baseTransforms = computeLayout();
+              if (activeIdx !== -1) {
+                highlightCard(activeIdx);
+              } else {
+                applyBase();
+              }
+            });
+          })();
+        </script>
+      </section>
+
+      <section id="technology" class="section" aria-labelledby="tech-heading">
+        <h2 id="tech-heading" class="section-title" data-eyebrow="Technical Inventory">Technology matrix</h2>
+
+        <div class="technology-grid mt-8">
+          <article class="card">
+            <h3 class="font-semibold text-white text-base">OT &amp; Protocols</h3>
+            <ul class="mt-2.5 text-sm leading-relaxed text-slate-400 space-y-1.5">
+              <li>• Modbus TCP (:5020)</li>
+              <li>• OPC UA (:4840)</li>
+              <li>• ISA-95 UNS Hierarchy</li>
+              <li>• ISA-18.2 Alarm Standard</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3 class="font-semibold text-white text-base">Bridge Middleware</h3>
+            <ul class="mt-2.5 text-sm leading-relaxed text-slate-400 space-y-1.5">
+              <li>• Python 3.12 (asyncio)</li>
+              <li>• pymodbus &amp; asyncua</li>
+              <li>• websockets (:8765)</li>
+              <li>• Dynamic JSON Handshake</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3 class="font-semibold text-white text-base">3D Process Twin</h3>
+            <ul class="mt-2.5 text-sm leading-relaxed text-slate-400 space-y-1.5">
+              <li>• Unity 6 LTS</li>
+              <li>• Universal Render Pipeline (URP)</li>
+              <li>• NativeWebSocket Transport</li>
+              <li>• MaterialPropertyBlock Shaders</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3 class="font-semibold text-white text-base">Enterprise HUD</h3>
+            <ul class="mt-2.5 text-sm leading-relaxed text-slate-400 space-y-1.5">
+              <li>• Unity UI Toolkit</li>
+              <li>• UXML Declarative Layouts</li>
+              <li>• USS Responsive Styling</li>
+              <li>• Modular Component Widgets</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="card mt-8 flex flex-wrap items-center justify-between gap-4 border border-slate-800 bg-surface-elevated p-5">
+          <div>
+            <h4 class="text-base font-semibold text-white">Looking for the standalone Edge Gateway deep-dive?</h4>
+            <p class="text-sm text-slate-400 mt-1">Explore the Universal Field Bridge architecture, SQLite edge buffering, and Siemens S7 adapters.</p>
+          </div>
+          <a href="field-bridge.html" class="link-underline font-mono text-sm text-accent">Read the Field Bridge case study →</a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="border-t border-slate-800 section">
+    <div class="mx-auto max-w-[88rem] px-4 sm:px-6">
+      <a href="../index.html#work" class="link-underline font-mono text-sm">← Explore other projects</a>
+    </div>
+  </footer>
+
+  <script>
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("reduce-motion");
+    }
+
+    const toc = document.querySelector(".toc");
+    const tocLinks = toc ? [...toc.querySelectorAll(".toc-link")] : [];
+    const tocTargets = tocLinks.map((link) => document.querySelector(link.getAttribute("href"))).filter(Boolean);
+
+    if (toc && "IntersectionObserver" in window) {
+      const setActive = (id) => tocLinks.forEach((link) => {
+        link.setAttribute("aria-current", link.getAttribute("href") === `#${id}` ? "true" : "false");
+      });
+      const observer = new IntersectionObserver((entries) => {
+        const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (visible[0]) setActive(visible[0].target.id);
+      }, { rootMargin: "-96px 0px -55% 0px", threshold: [0, 1] });
+      tocTargets.forEach((target) => observer.observe(target));
+      if (tocTargets[0]) setActive(tocTargets[0].id);
+    }
+
+    const video = document.getElementById("twin-video");
+    document.querySelectorAll(".video-jump-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const time = parseFloat(btn.getAttribute("data-time"));
+        if (video && !isNaN(time)) {
+          video.currentTime = time;
+          video.play().catch(() => {});
+        }
+      });
+    });
+
+    const stateData = {
+      filling: {
+        img: "../assets/images/line-dt/twin-filling-state.jpg",
+        alt: "Unity process twin in batch filling state",
+        badge: "STATE: BATCH_FILLING",
+        level: "680.5 Liters",
+        rpm: "320.0 RPM",
+        valves: "OPEN / CLOSED",
+        valvesClass: "text-green-400 font-semibold text-base",
+        alarmState: "NORMAL",
+        alarmClass: "text-green-400 font-semibold text-base",
+        desc: "The fill valve opens and liquid rises inside the vessel. The LiquidVolumeBinder updates the procedural shader fill height while HUD metric cards track real-time volume."
+      },
+      discharging: {
+        img: "../assets/images/line-dt/twin-discharging-state.jpg",
+        alt: "Unity process twin in vessel discharging state",
+        badge: "STATE: DISCHARGING",
+        level: "142.3 Liters",
+        rpm: "60.0 RPM (Ramping Down)",
+        valves: "CLOSED / OPEN",
+        valvesClass: "text-cyan-400 font-semibold text-base",
+        alarmState: "NORMAL",
+        alarmClass: "text-green-400 font-semibold text-base",
+        desc: "The bottom drain valve actuates open, the agitator impeller ramps down, and the procedural fluid vortex dissipates as product drains from the vessel."
+      },
+      alarm: {
+        img: "../assets/images/line-dt/twin-alarm-state.jpg",
+        alt: "Unity process twin in emergency stop condition",
+        badge: "STATE: EMERGENCY_STOP",
+        level: "950.0 Liters (Full)",
+        rpm: "0.0 RPM (Tripped)",
+        valves: "CLOSED / CLOSED",
+        valvesClass: "text-red-400 font-semibold text-base",
+        alarmState: "CRITICAL (LATCHED)",
+        alarmClass: "text-red-400 font-semibold text-base",
+        desc: "Remote or field E-STOP command triggers emergency shutdown. The top banner locks into E-STOP, the stacklight flashes red, and the ISA-18.2 alarm deck latches unacknowledged alarm state."
+      }
+    };
+
+    const stateImg = document.getElementById("state-img");
+    const stateBadge = document.getElementById("state-badge");
+    const tagLevel = document.getElementById("tag-level");
+    const tagRpm = document.getElementById("tag-rpm");
+    const tagValves = document.getElementById("tag-valves");
+    const tagAlarmState = document.getElementById("tag-alarm-state");
+    const stateDesc = document.getElementById("state-desc");
+
+    document.querySelectorAll(".state-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const stateKey = btn.getAttribute("data-state");
+        const data = stateData[stateKey];
+        if (!data) return;
+
+        document.querySelectorAll(".state-btn").forEach((b) => {
+          b.classList.remove("active", "border-accent", "text-white");
+          b.setAttribute("aria-selected", "false");
+        });
+        btn.classList.add("active", "border-accent", "text-white");
+        btn.setAttribute("aria-selected", "true");
+
+        stateImg.src = data.img;
+        stateImg.alt = data.alt;
+        stateBadge.textContent = data.badge;
+        tagLevel.textContent = data.level;
+        tagRpm.textContent = data.rpm;
+        tagValves.textContent = data.valves;
+        tagValves.className = data.valvesClass;
+        tagAlarmState.textContent = data.alarmState;
+        tagAlarmState.className = data.alarmClass;
+        stateDesc.textContent = data.desc;
+      });
+    });
+
+    document.querySelectorAll(".term-wrapper").forEach((wrapper) => {
+      const trigger = wrapper.querySelector(".term-trigger");
+      if (!trigger) return;
+
+      trigger.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isActive = wrapper.classList.toggle("is-active");
+        trigger.setAttribute("aria-expanded", String(isActive));
+      });
+    });
+
+    document.addEventListener("click", () => {
+      document.querySelectorAll(".term-wrapper.is-active").forEach((wrapper) => {
+        wrapper.classList.remove("is-active");
+        const trigger = wrapper.querySelector(".term-trigger");
+        if (trigger) trigger.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        document.querySelectorAll(".term-wrapper.is-active").forEach((wrapper) => {
+          wrapper.classList.remove("is-active");
+          const trigger = wrapper.querySelector(".term-trigger");
+          if (trigger) trigger.setAttribute("aria-expanded", "false");
+        });
+      }
+    });
+  </script>
+  <script src="../js/ambient-dither.js" defer></script>
+</body>
+</html>

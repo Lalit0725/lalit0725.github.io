@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lalit M. — Unity &amp; Digital Twin Engineer</title>
+<meta name="description" content="Lalit M. designs industrial digital twins, OT data gateways, and XR systems with end-to-end engineering ownership.">
+<meta name="theme-color" content="#0b1120"><link rel="canonical" href="https://lalit0725.github.io/">
+<meta property="og:title" content="Lalit M. — Unity &amp; Digital Twin Engineer"><meta property="og:description" content="Industrial digital twins, OT data gateways, and XR systems, designed and delivered end to end."><meta property="og:type" content="website"><meta property="og:url" content="https://lalit0725.github.io/">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+
+</head>
+<body class="bg-surface text-slate-200 font-sans antialiased">
+  <canvas id="ambient-dither" aria-hidden="true"></canvas>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <script>document.documentElement.classList.add('js');</script>
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:bg-surface focus:px-4 focus:py-2 focus:text-sm focus:text-accent">Skip to content</a>
+
+  <div id="toast" role="status" aria-live="polite" class="fixed bottom-6 left-1/2 z-50 hidden -translate-x-1/2 border border-slate-700 bg-surface px-4 py-2.5 font-mono text-xs text-slate-200 shadow-xl"></div>
+
+  <header class="sticky top-0 z-40 border-b border-slate-800 bg-surface/95 backdrop-blur">
+    <nav class="mx-auto flex max-w-5xl items-center justify-between px-4 py-4 sm:px-6">
+      <a href="#hero" class="font-mono text-sm font-semibold tracking-tight text-white">Lalit&nbsp;M.</a>
+      <div class="hidden items-center gap-7 font-mono text-xs text-slate-400 md:flex">
+        <a href="#what-i-do">What I do</a>
+        <a href="#work">Selected work</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <a href="assets/Lalit_M_Resume.pdf" target="_blank" rel="noopener">Résumé<span class="sr-only"> (opens in a new tab)</span></a>
+      </div>
+      <button id="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" class="font-mono text-xs text-slate-300 md:hidden">Menu</button>
+    </nav>
+    <div id="mobile-menu" class="hidden border-t border-slate-800 px-4 py-3 md:hidden">
+      <div class="mx-auto grid max-w-5xl gap-1 font-mono text-sm">
+        <a class="menu-link px-2 py-2" href="#what-i-do">What I do</a>
+        <a class="menu-link px-2 py-2" href="#work">Selected work</a>
+        <a class="menu-link px-2 py-2" href="#experience">Experience</a>
+        <a class="menu-link px-2 py-2" href="#skills">Skills</a>
+        <a class="menu-link px-2 py-2" href="#contact">Contact</a>
+        <a class="menu-link px-2 py-2" href="assets/Lalit_M_Resume.pdf" target="_blank" rel="noopener">Résumé<span class="sr-only"> (opens in a new tab)</span></a>
+      </div>
+    </div>
+  </header>
+
+  <noscript>
+    <style>
+      #menu-btn { display: none; }
+      #mobile-menu { display: block; }
+      .cap-details { display: block !important; grid-template-rows: none !important; }
+      .cap-details-wrapper { overflow: visible !important; }
+      .cap-arrow { display: none; }
+    </style>
+  </noscript>
+
+  <main id="main" tabindex="-1" class="mx-auto max-w-5xl px-4 sm:px-6">
+    <section id="hero" class="relative border-b border-slate-800 section">
+      <div class="relative">
+        <p class="section-title" data-eyebrow="Industrial systems · Unity · XR"></p>
+        <h1 class="mt-5 max-w-3xl text-h1 font-semibold leading-tight tracking-tight text-white">Unity &amp; Digital Twin Engineer</h1>
+        <p class="mt-6 max-w-2xl text-body-lg leading-relaxed text-slate-400">
+          I take ownership of the engineering boundary between industrial operations and the systems that represent them: live plant data, resilient gateways, and clear digital-twin or XR experiences for the people who need to act.
+        </p>
+        <div class="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3 font-mono text-sm">
+          <a href="#work" class="rounded-md bg-accent px-5 py-2.5 font-medium text-surface">See selected work</a>
+          <a href="assets/Lalit_M_Resume.pdf" target="_blank" rel="noopener" class="link-underline">Résumé<span class="sr-only"> (opens in a new tab)</span></a>
+          <a href="#contact" class="link-underline">Start a conversation</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="what-i-do" class="border-b border-slate-800 section">
+      <h2 class="section-title" data-eyebrow="Capabilities">What I do</h2>
+      <div class="mt-8 grid gap-4 md:grid-cols-3">
+        <article class="card">
+          <h3 class="text-lg font-semibold text-white">Make plant data usable</h3>
+          <p class="mt-3 text-sm leading-relaxed text-slate-300">
+            When equipment speaks different protocols and networks are imperfect, I own the gateway layer that normalises signals, transports them to applications, and supports local telemetry buffering.
+          </p>
+        </article>
+        <article class="card">
+          <h3 class="text-lg font-semibold text-white">Turn state into operational clarity</h3>
+          <p class="mt-3 text-sm leading-relaxed text-slate-300">
+            When operators need context rather than tag lists, I own the Unity digital-twin experience: responsive rendering, alarm-state modelling aligned with ISA-18.2, and a considered path for operator actions.
+          </p>
+        </article>
+        <article class="card">
+          <h3 class="text-lg font-semibold text-white">Create repeatable delivery systems</h3>
+          <p class="mt-3 text-sm leading-relaxed text-slate-300">
+            When every screen or training scenario becomes bespoke work, I own the architecture and editor tooling that supports configuration-driven interfaces, XR workflows, code review, and team delivery.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="work" class="border-b border-slate-800 section">
+      <h2 class="section-title" data-eyebrow="Case studies">Selected work</h2>
+      <div class="mt-8 grid gap-4">
+        <article class="card card-hover">
+          <div class="flex flex-wrap items-baseline justify-between gap-3">
+            <h3 class="text-lg font-semibold text-white">Universal Field Bridge</h3>
+            <span class="font-mono text-xs text-text-muted">Edge gateway</span>
+          </div>
+          <p class="mt-4 text-sm leading-relaxed text-slate-300">
+            Decision-maker outcome: a clearer path from mixed plant protocols to dependable telemetry, with local SQLite buffering designed to support data through a connection drop.
+          </p>
+          <div class="mt-5 flex flex-wrap gap-2">
+            <span class="chip">Python asyncio</span>
+            <span class="chip">OPC UA</span>
+            <span class="chip">Modbus</span>
+            <span class="chip">S7</span>
+          </div>
+          <a href="projects/field-bridge.html" class="mt-5 inline-block link-underline font-mono text-xs">Read the Field Bridge case study</a>
+        </article>
+
+        <article class="card card-hover">
+          <div class="flex flex-wrap items-baseline justify-between gap-3">
+            <h3 class="text-lg font-semibold text-white">Line DT — Process Twin &amp; PLC Bridge</h3>
+            <span class="font-mono text-xs text-text-muted">Unity 6 &amp; Python</span>
+          </div>
+          <p class="mt-4 text-sm leading-relaxed text-slate-300">
+            Decision-maker outcome: bridges Modbus TCP &amp; OPC UA telemetry through a semantic Unified Namespace to a real-time 3D process twin with zero-GC fluid shaders, multi-rate cadence smoothing, and a modular UI Toolkit HUD.
+          </p>
+          <div class="mt-5 flex flex-wrap gap-2">
+            <span class="chip">Unity 6</span>
+            <span class="chip">Python asyncio</span>
+            <span class="chip">UNS / ISA-95</span>
+            <span class="chip">Modbus &amp; OPC UA</span>
+            <span class="chip">UI Toolkit</span>
+            <span class="chip">ISA-18.2</span>
+          </div>
+          <a href="projects/line-dt.html" class="mt-5 inline-block link-underline font-mono text-xs">Read the Line DT case study</a>
+        </article>
+
+        <article class="card card-hover">
+          <div class="flex flex-wrap items-baseline justify-between gap-3">
+            <h3 class="text-lg font-semibold text-white">Toast Notification System</h3>
+            <span class="font-mono text-xs text-accent">Unity Asset Store</span>
+          </div>
+          <p class="mt-4 text-sm leading-relaxed text-slate-300">
+            Decision-maker outcome: a reusable, zero-GC notification package published on the Unity Asset Store that gives Unity teams a clean 1-line API without coupling callers to UI Toolkit lifecycle or threading concerns.
+          </p>
+          <div class="mt-5 flex flex-wrap gap-2">
+            <span class="chip">UI Toolkit</span>
+            <span class="chip">C#</span>
+            <span class="chip">USS</span>
+            <span class="chip">Object Pooling</span>
+          </div>
+          <div class="mt-5 flex flex-wrap items-center gap-5">
+            <a href="projects/toast-notification-system.html" class="link-underline font-mono text-xs">Read the Toast case study</a>
+            <a href="https://assetstore.unity.com/packages/tools/gui/toast-notification-system-390896" target="_blank" rel="noopener noreferrer" class="link-underline font-mono text-xs text-slate-400 hover:text-accent">Unity Asset Store ↗</a>
+          </div>
+        </article>
+      </div>
+    </section>
+<section id="experience" class="border-b border-slate-800 section bento-section">
+  <div class="container">
+    <header class="section-header">
+      <div class="eyebrow">Career History</div>
+      <h1 class="exp-heading">Experience</h1>
+    </header>
+
+    <div>
+      <!-- CRION: SENIOR ROLE -->
+      <div class="role-header">
+        <h2 class="role-title">Senior Unity Developer</h2>
+        <div class="role-meta">
+          <span class="role-company">Crion Technologies</span>
+          <span class="meta-dot">·</span>
+          <span class="role-duration">July 2021 – Present</span>
+        </div>
+      </div>
+
+      <div class="bento-grid">
+        
+        <!-- Row 1 -->
+        <div class="bento-card span-2">
+          <div class="bento-content">
+            <h3 class="card-title">OT Data Aggregation Framework</h3>
+            <p class="card-desc">Architected a configuration-driven middleware (Field Bridge) that unifies data from Siemens S7, EtherNet/IP, and Modbus PLCs. Enabled engineers to deploy Mini-PC edge gateways via JSON configs, buffering data in SQLite to ensure zero data loss before syncing to MongoDB.</p>
+          </div>
+        </div>
+
+        <div class="bento-card">
+          <div class="bento-content">
+            <h3 class="card-title">High-Performance Unity Visualisation</h3>
+            <p class="card-desc">Engineered a high-performance OPC UA visualisation pipeline, utilizing multi-threaded data processing to offload heavy telemetry parsing from the main thread, ensuring smooth rendering of high-frequency data within the Universal Render Pipeline (URP).</p>
+          </div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="bento-card">
+          <div class="bento-content">
+            <h3 class="card-title">Process Simulation Integration</h3>
+            <p class="card-desc">Integrated Process Simulators (DWSim) into Unity via external DLLs and OPC UA bridges, enabling real-time physics and chemical process validation within the Digital Twin environment.</p>
+          </div>
+        </div>
+
+        <div class="bento-card span-2">
+          <div class="bento-content">
+            <h3 class="card-title">Enterprise VR Training Ecosystem</h3>
+            <p class="card-desc">Architected a modular VR Operator Training System featuring a custom Unity Editor Authoring Interface. This no/low-code tool enables designers to visually construct complex step-by-step procedures without engineering support.</p>
+          </div>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="bento-card">
+          <div class="bento-content">
+            <h3 class="card-title">Offline Multiplayer</h3>
+            <p class="card-desc">Engineered a custom TCP-based networking layer specifically for secure, offline industrial environments. Built the entire stack to handle high-bandwidth Quest-to-PC video streaming and real-time state synchronization, allowing instructor monitoring without any internet or cloud dependency.</p>
+          </div>
+        </div>
+        
+        <div class="bento-card">
+          <div class="bento-content">
+            <h3 class="card-title">Real-Time Networking (Socket.IO)</h3>
+            <p class="card-desc">Developed a resilient networking layer on top of Socket.IO to manage dynamic rooms and namespaces, optimizing data traffic to ensure robust connectivity and a unified pipeline for streaming high-frequency data.</p>
+          </div>
+        </div>
+
+        <div class="bento-card">
+          <div class="bento-content">
+            <h3 class="card-title">Developer Experience (Editor Tools)</h3>
+            <p class="card-desc">Developed a suite of productivity micro-tools (CSV-to-ScriptableObject converters, Bulk Tag Mapping) and many Unity Editor Tools that eliminated repetitive manual entry, significantly accelerating daily development velocity for the dev team.</p>
+          </div>
+        </div>
+
+        <!-- Row 4 -->
+        <div class="bento-card">
+          <div class="bento-content">
+            <h3 class="card-title">AI R&D (Unity Sentis)</h3>
+            <p class="card-desc">Experimented with leveraging Unity Sentis for on-device inferencing, enabling Digital Twin applications to run AI models locally without cloud dependencies.</p>
+          </div>
+        </div>
+
+        <div class="bento-card span-2">
+          <div class="bento-content">
+            <h3 class="card-title">Team and Technical Leadership</h3>
+            <p class="card-desc">Led technical mentorship across multiple teams and disciplines, guiding backend, frontend, and Unity developers on SOLID design principles and sustainable development practices. Transformed inconsistent workflows into a scalable, standardised foundation, improving overall quality through hands-on guidance and regular reviews.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- PAST ROLES -->
+      <div class="role-header role-header-secondary">
+        <h2 class="role-title role-title-secondary">Previous Roles</h2>
+      </div>
+
+      <div class="past-roles">
+        <div class="bento-card past-role-card">
+          <div class="bento-content">
+            <h3>Junior Unity Developer</h3>
+            <div class="meta">
+              <span class="role-company">TNQ Ingage</span>
+              <span class="meta-dot">·</span>
+              <span class="role-duration">Feb 2020 – May 2020</span>
+            </div>
+            <p><strong>VR Safety Simulation:</strong> Developed immersive industrial safety training modules for mobile VR (Oculus/Daydream); optimised 3D assets and lighting to maintain stable frame rates on mobile hardware.</p>
+            <p><strong>Localisation Systems:</strong> Implemented a scalable JSON-based localisation system, enabling the seamless deployment of training apps across different regions.</p>
+          </div>
+        </div>
+
+        <div class="bento-card past-role-card">
+          <div class="bento-content">
+            <h3>AR Developer (Intern)</h3>
+            <div class="meta">
+              <span class="role-company">Flex India</span>
+              <span class="meta-dot">·</span>
+              <span class="role-duration">Jul 2019 – Sep 2019</span>
+            </div>
+            <p><strong>Remote Assistance AR:</strong> Collaborated on an AR remote support tool for field technicians and developed the UI and interactive Tutorial systems.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section id="skills" class="border-b border-slate-800 section cap-matrix-section">
+  <div class="cap-kicker">Skills / Capability Matrix</div>
+  <h2 class="cap-main-heading">The tools I use to build real systems.</h2>
+  <p class="cap-lead">Capabilities explain what I can solve. The tools underneath make the engineering stack immediately visible, so an interviewer can scan it in seconds without decoding a futuristic diagram.</p>
+
+  <div class="cap-grid" id="cap-grid" role="region" aria-label="Capability Matrix">
+    
+    <!-- Card 1: Realtime 3D & Unity (Active by default) -->
+    <article class="cap-card active" id="cap-card-0">
+      <button type="button" class="cap-trigger" aria-expanded="true" aria-controls="cap-details-0" id="cap-btn-0">
+        <div class="cap-cardtop">
+          <div class="cap-icon" aria-hidden="true">◈</div>
+          <span class="cap-arrow" aria-hidden="true">↗</span>
+        </div>
+        <h3 class="cap-title">Realtime 3D &amp; Unity</h3>
+        <p class="cap-desc">Build interactive realtime applications, digital twins and technical visualization systems.</p>
+        <div class="cap-tools">
+          <span class="cap-tool"><span class="cap-logo unity">U</span>Unity</span>
+          <span class="cap-tool"><span class="cap-logo">C#</span>C#</span>
+          <span class="cap-tool"><span class="cap-logo">URP</span>URP</span>
+          <span class="cap-tool"><span class="cap-logo">UI</span>UI Toolkit</span>
+          <span class="cap-tool"><span class="cap-logo">SG</span>Shader Graph</span>
+          <span class="cap-tool"><span class="cap-logo">TL</span>Timeline</span>
+          <span class="cap-tool"><span class="cap-logo">CM</span>Cinemachine</span>
+        </div>
+      </button>
+      <div class="cap-details" id="cap-details-0" role="region" aria-labelledby="cap-btn-0">
+        <div class="cap-details-wrapper">
+          <div class="cap-details-inner">
+            <div class="cap-detail-col">
+              <h4>What I use it for</h4>
+              <ul>
+                <li>Digital Twin applications</li>
+                <li>Realtime 3D interfaces</li>
+                <li>Interactive technical tools</li>
+              </ul>
+            </div>
+            <div class="cap-detail-col">
+              <h4>Engineering context</h4>
+              <p>My strongest development layer: turning complex systems and data into usable realtime experiences.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 2: Industrial Connectivity -->
+    <article class="cap-card" id="cap-card-1">
+      <button type="button" class="cap-trigger" aria-expanded="false" aria-controls="cap-details-1" id="cap-btn-1">
+        <div class="cap-cardtop">
+          <div class="cap-icon" aria-hidden="true">⌁</div>
+          <span class="cap-arrow" aria-hidden="true">↗</span>
+        </div>
+        <h3 class="cap-title">Industrial Connectivity</h3>
+        <p class="cap-desc">Connect software to PLCs, machines and industrial data sources.</p>
+        <div class="cap-tools">
+          <span class="cap-tool"><span class="cap-logo plc">UA</span>OPC UA</span>
+          <span class="cap-tool"><span class="cap-logo plc">S7</span>Siemens S7</span>
+          <span class="cap-tool"><span class="cap-logo plc">MB</span>Modbus</span>
+          <span class="cap-tool"><span class="cap-logo plc">EIP</span>EtherNet/IP</span>
+          <span class="cap-tool"><span class="cap-logo">MQ</span>MQTT</span>
+          <span class="cap-tool"><span class="cap-logo plc">PLC</span>PLC Integration</span>
+        </div>
+      </button>
+      <div class="cap-details" id="cap-details-1" role="region" aria-labelledby="cap-btn-1">
+        <div class="cap-details-wrapper">
+          <div class="cap-details-inner">
+            <div class="cap-detail-col">
+              <h4>What I use it for</h4>
+              <ul>
+                <li>PLC / machine integration</li>
+                <li>Live equipment data</li>
+                <li>Industrial protocol interfaces</li>
+              </ul>
+            </div>
+            <div class="cap-detail-col">
+              <h4>Engineering context</h4>
+              <p>The bridge between the physical system and software. I work across protocols rather than treating the PLC as a black box.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 3: Software Architecture -->
+    <article class="cap-card" id="cap-card-2">
+      <button type="button" class="cap-trigger" aria-expanded="false" aria-controls="cap-details-2" id="cap-btn-2">
+        <div class="cap-cardtop">
+          <div class="cap-icon" aria-hidden="true">⌘</div>
+          <span class="cap-arrow" aria-hidden="true">↗</span>
+        </div>
+        <h3 class="cap-title">Software Architecture</h3>
+        <p class="cap-desc">Design maintainable systems that can grow beyond the initial prototype.</p>
+        <div class="cap-tools">
+          <span class="cap-tool"><span class="cap-logo">S</span>SOLID</span>
+          <span class="cap-tool"><span class="cap-logo">MVU</span>MVU</span>
+          <span class="cap-tool"><span class="cap-logo">DI</span>Zenject / DI</span>
+          <span class="cap-tool"><span class="cap-logo">API</span>REST APIs</span>
+          <span class="cap-tool"><span class="cap-logo">WS</span>WebSockets</span>
+          <span class="cap-tool"><span class="cap-logo">μS</span>Microservices</span>
+        </div>
+      </button>
+      <div class="cap-details" id="cap-details-2" role="region" aria-labelledby="cap-btn-2">
+        <div class="cap-details-wrapper">
+          <div class="cap-details-inner">
+            <div class="cap-detail-col">
+              <h4>What I use it for</h4>
+              <ul>
+                <li>Modular applications</li>
+                <li>Reusable components</li>
+                <li>Service boundaries</li>
+              </ul>
+            </div>
+            <div class="cap-detail-col">
+              <h4>Engineering context</h4>
+              <p>Architecture is the layer connecting the individual technologies into a system that can actually be maintained.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 4: Backend & Data -->
+    <article class="cap-card" id="cap-card-3">
+      <button type="button" class="cap-trigger" aria-expanded="false" aria-controls="cap-details-3" id="cap-btn-3">
+        <div class="cap-cardtop">
+          <div class="cap-icon" aria-hidden="true">◇</div>
+          <span class="cap-arrow" aria-hidden="true">↗</span>
+        </div>
+        <h3 class="cap-title">Backend &amp; Data</h3>
+        <p class="cap-desc">Process, store and serve information between industrial systems, applications and users.</p>
+        <div class="cap-tools">
+          <span class="cap-tool"><span class="cap-logo py">Py</span>Python</span>
+          <span class="cap-tool"><span class="cap-logo node">N</span>Node.js</span>
+          <span class="cap-tool"><span class="cap-logo node">Ex</span>Express</span>
+          <span class="cap-tool"><span class="cap-logo mongo">M</span>MongoDB</span>
+          <span class="cap-tool"><span class="cap-logo sql">SQL</span>SQL / SQLite</span>
+          <span class="cap-tool"><span class="cap-logo py">Pd</span>Pandas</span>
+          <span class="cap-tool"><span class="cap-logo">WS</span>WebSockets</span>
+        </div>
+      </button>
+      <div class="cap-details" id="cap-details-3" role="region" aria-labelledby="cap-btn-3">
+        <div class="cap-details-wrapper">
+          <div class="cap-details-inner">
+            <div class="cap-detail-col">
+              <h4>What I use it for</h4>
+              <ul>
+                <li>Data pipelines</li>
+                <li>Backend services</li>
+                <li>Realtime data delivery</li>
+              </ul>
+            </div>
+            <div class="cap-detail-col">
+              <h4>Engineering context</h4>
+              <p>Used for integration services, data processing, APIs and the infrastructure supporting realtime applications.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 5: XR & Spatial Computing -->
+    <article class="cap-card" id="cap-card-4">
+      <button type="button" class="cap-trigger" aria-expanded="false" aria-controls="cap-details-4" id="cap-btn-4">
+        <div class="cap-cardtop">
+          <div class="cap-icon" aria-hidden="true">◎</div>
+          <span class="cap-arrow" aria-hidden="true">↗</span>
+        </div>
+        <h3 class="cap-title">XR &amp; Spatial Computing</h3>
+        <p class="cap-desc">Build AR and VR experiences where spatial context is part of the solution.</p>
+        <div class="cap-tools">
+          <span class="cap-tool"><span class="cap-logo">AR</span>AR Foundation</span>
+          <span class="cap-tool"><span class="cap-logo">XR</span>OpenXR</span>
+          <span class="cap-tool"><span class="cap-logo">MQ</span>Meta Quest</span>
+          <span class="cap-tool"><span class="cap-logo">IM</span>Immersal</span>
+          <span class="cap-tool"><span class="cap-logo">SL</span>SLAM</span>
+          <span class="cap-tool"><span class="cap-logo unity">U</span>Unity</span>
+        </div>
+      </button>
+      <div class="cap-details" id="cap-details-4" role="region" aria-labelledby="cap-btn-4">
+        <div class="cap-details-wrapper">
+          <div class="cap-details-inner">
+            <div class="cap-detail-col">
+              <h4>What I use it for</h4>
+              <ul>
+                <li>AR assistance</li>
+                <li>VR training</li>
+                <li>Spatial alignment</li>
+              </ul>
+            </div>
+            <div class="cap-detail-col">
+              <h4>Engineering context</h4>
+              <p>Combines realtime 3D engineering with spatial tracking to put information into the environment where it is needed.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 6: AI & Computer Vision -->
+    <article class="cap-card" id="cap-card-5">
+      <button type="button" class="cap-trigger" aria-expanded="false" aria-controls="cap-details-5" id="cap-btn-5">
+        <div class="cap-cardtop">
+          <div class="cap-icon" aria-hidden="true">✦</div>
+          <span class="cap-arrow" aria-hidden="true">↗</span>
+        </div>
+        <h3 class="cap-title">AI &amp; Computer Vision</h3>
+        <p class="cap-desc">Integrate inference and visual intelligence into applications where it creates practical value.</p>
+        <div class="cap-tools">
+          <span class="cap-tool"><span class="cap-logo ai">ST</span>Unity Sentis</span>
+          <span class="cap-tool"><span class="cap-logo">ON</span>ONNX</span>
+          <span class="cap-tool"><span class="cap-logo ai">YO</span>YOLO</span>
+          <span class="cap-tool"><span class="cap-logo ai">OCR</span>OCR</span>
+          <span class="cap-tool"><span class="cap-logo py">SK</span>scikit-learn</span>
+          <span class="cap-tool"><span class="cap-logo py">Py</span>Python</span>
+        </div>
+      </button>
+      <div class="cap-details" id="cap-details-5" role="region" aria-labelledby="cap-btn-5">
+        <div class="cap-details-wrapper">
+          <div class="cap-details-inner">
+            <div class="cap-detail-col">
+              <h4>What I use it for</h4>
+              <ul>
+                <li>Edge inference</li>
+                <li>Object detection</li>
+                <li>Prediction / classification</li>
+              </ul>
+            </div>
+            <div class="cap-detail-col">
+              <h4>Engineering context</h4>
+              <p>Applied as an engineering component inside products, with attention to inference constraints and deployment.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="cap-footerline">
+    <span>CAPABILITY &rarr; TOOLS &rarr; APPLICATION</span>
+    <span>Click any capability card to inspect engineering context</span>
+  </div>
+</section>
+    <section id="contact" class="section">
+      <div class="card card-hover border border-slate-800/80 p-8 sm:p-10">
+        <h2 class="section-title" data-eyebrow="Contact">Contact</h2>
+        <h3 class="mt-5 max-w-2xl text-h2 font-semibold leading-snug text-white">Bring a difficult industrial system into focus.</h3>
+        <p class="mt-4 max-w-2xl text-sm leading-relaxed text-slate-400">
+          If you are working on digital twins, industrial visualisation, XR training, or real-time systems with awkward data behind them, email is the fastest way to reach me.
+        </p>
+        <div class="mt-8 flex flex-wrap items-center gap-3 font-mono text-sm">
+          <a href="mailto:lalitsolanki0725@gmail.com" class="rounded-md bg-accent px-5 py-2.5 font-medium text-surface">lalitsolanki0725@gmail.com</a>
+          <button id="copy-email" type="button" class="rounded-md border border-slate-700 px-5 py-2.5">Copy address</button>
+          <a href="assets/Lalit_M_Resume.pdf" target="_blank" rel="noopener" class="rounded-md border border-slate-700 px-5 py-2.5">Résumé<span class="sr-only"> (opens in a new tab)</span></a>
+          <a href="https://github.com/lalit0725" target="_blank" rel="noopener" class="rounded-md border border-slate-700 px-5 py-2.5">GitHub<span class="sr-only"> (opens in a new tab)</span></a>
+          <a href="https://www.linkedin.com/in/lalitm" target="_blank" rel="noopener" class="rounded-md border border-slate-700 px-5 py-2.5">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-800 section">
+    <div class="mx-auto max-w-5xl px-4 font-mono text-xs text-text-muted sm:px-6">
+      <p>&copy; 2026 Lalit M.</p>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const setMenuOpen = (open) => {
+      mobileMenu.classList.toggle('hidden', !open);
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.textContent = open ? 'Close' : 'Menu';
+    };
+    menuBtn.addEventListener('click', () => setMenuOpen(menuBtn.getAttribute('aria-expanded') !== 'true'));
+    document.querySelectorAll('.menu-link').forEach((link) => link.addEventListener('click', () => setMenuOpen(false)));
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && menuBtn.getAttribute('aria-expanded') === 'true') {
+        setMenuOpen(false);
+        menuBtn.focus();
+      }
+    });
+
+    const toast = document.getElementById('toast');
+    const emailLink = document.querySelector('#contact a[href^="mailto:"]');
+    const copyButton = document.getElementById('copy-email');
+    let toastTimer;
+    const showToast = (message) => {
+      window.clearTimeout(toastTimer);
+      toast.textContent = message;
+      toast.classList.remove('hidden');
+      toastTimer = window.setTimeout(() => toast.classList.add('hidden'), 2500);
+    };
+    copyButton.addEventListener('click', async () => {
+      const email = emailLink.textContent.trim();
+      try {
+        if (!navigator.clipboard || typeof navigator.clipboard.writeText !== 'function') throw new Error('Clipboard unavailable');
+        await navigator.clipboard.writeText(email);
+        showToast('Copied ' + email);
+      } catch {
+        showToast('Copy unavailable; email ' + email);
+      }
+    });
+
+    const capCards = document.querySelectorAll('.cap-card');
+    capCards.forEach((card) => {
+      const trigger = card.querySelector('.cap-trigger');
+      if (!trigger) return;
+      trigger.addEventListener('click', () => {
+        const isCurrentlyActive = card.classList.contains('active');
+        capCards.forEach((otherCard) => {
+          if (otherCard !== card) {
+            otherCard.classList.remove('active');
+            const otherTrigger = otherCard.querySelector('.cap-trigger');
+            if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
+          }
+        });
+        if (isCurrentlyActive) {
+          card.classList.remove('active');
+          trigger.setAttribute('aria-expanded', 'false');
+        } else {
+          card.classList.add('active');
+          trigger.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
+  <script src="js/ambient-dither.js" defer></script>
+</body>
+</html>

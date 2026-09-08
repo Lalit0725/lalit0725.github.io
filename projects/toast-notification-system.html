@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toast Notification System | Lalit M.</title>
+  <meta name="description" content="A reusable Unity UI Toolkit notification layer with thread-safe dispatch, zero-GC pooling, and USS theming.">
+  <meta name="theme-color" content="#0b1120">
+  <link rel="canonical" href="https://lalit0725.github.io/projects/toast-notification-system.html">
+  <meta property="og:title" content="Toast Notification System | Lalit M.">
+  <meta property="og:description" content="A reusable Unity UI Toolkit notification layer with thread-safe dispatch, zero-GC pooling, and USS theming.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lalit0725.github.io/projects/toast-notification-system.html">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/site.css">
+</head>
+<body class="bg-surface font-sans antialiased text-slate-200">
+  <canvas id="ambient-dither" aria-hidden="true"></canvas>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <script>document.documentElement.classList.add("js");</script>
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-3 focus:z-50 focus:bg-surface focus:px-4 focus:py-2 focus:text-sm focus:text-accent">Skip to content</a>
+
+  <header class="sticky top-0 z-40 border-b border-slate-800 bg-surface/95 backdrop-blur">
+    <nav aria-label="Project navigation" class="mx-auto flex max-w-[88rem] items-center justify-between px-4 py-4 sm:px-6">
+      <a href="../index.html#work" class="font-mono text-sm font-semibold tracking-tight text-white">Lalit M.</a>
+      <a href="../index.html#work" class="font-mono text-xs text-slate-400 transition-colors hover:text-accent">← Back to work</a>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1" class="case-study-main case-study-dense mx-auto max-w-[88rem] px-4 sm:px-6">
+    <header class="relative border-b border-slate-800 section">
+      <p class="section-title" data-eyebrow="Reusable Unity Package · UI Toolkit"></p>
+      <h1 class="mt-5 max-w-3xl text-h1 font-semibold leading-tight tracking-tight text-white">Toast Notification System</h1>
+      <p class="mt-4 max-w-3xl text-body-lg leading-relaxed text-slate-300">
+        A decoupled, thread-safe notification system for Unity UI Toolkit featuring zero-allocation pooling, SynchronizationContext thread marshaling, and USS styling.
+      </p>
+
+      <div class="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-xs text-slate-400">
+        <div><span class="text-slate-500">Role:</span> <span class="text-slate-200">Senior Unity Developer</span></div>
+        <div>
+          <span class="text-slate-500">Distribution:</span> 
+          <a href="https://assetstore.unity.com/packages/tools/gui/toast-notification-system-390896" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">
+            Unity Asset Store (#390896) ↗
+          </a>
+        </div>
+        <div><span class="text-slate-500">Target Runtime:</span> <span class="text-slate-200">Unity 2021 LTS+ / Unity 6 LTS</span></div>
+      </div>
+
+      <div class="mt-6 flex flex-wrap gap-2" aria-label="Technology used">
+        <span class="chip">Unity</span>
+        <span class="chip">UI Toolkit</span>
+        <span class="chip">C#</span>
+        <span class="chip">USS</span>
+        <span class="chip">SynchronizationContext</span>
+        <span class="chip">Object Pooling</span>
+        <span class="chip">WebGL</span>
+      </div>
+    </header>
+
+    <nav class="toc" aria-label="On this page">
+      <a class="toc-link" href="#interactive-demo">Interactive demo</a>
+      <a class="toc-link" href="#architecture">Architecture &amp; features</a>
+      <a class="toc-link" href="#developer-experience">Developer experience</a>
+      <a class="toc-link" href="#technology">Technology stack</a>
+    </nav>
+
+    <div class="divide-y divide-slate-800">
+      
+      <!-- Executive Takeaway Card -->
+      <section class="card my-8 border-l-4 border-l-accent max-w-5xl" aria-labelledby="takeaway">
+        <p class="font-mono text-xs uppercase tracking-wider text-accent">What this means for engineering &amp; teams</p>
+        <h2 id="takeaway" class="mt-2 max-w-4xl text-h3 font-semibold text-white leading-snug">
+          When projects rebuild notification plumbing in ad-hoc scripts, UI calls break thread boundaries and spike GC. This package provides a one-line entry point while retaining full control of lifecycle, thread dispatch, and visual styling.
+        </h2>
+        <dl class="mt-6 grid grid-cols-2 gap-x-6 gap-y-5 border-t border-slate-800 pt-5 sm:grid-cols-4">
+          <div>
+            <dt class="font-mono text-xs uppercase tracking-wider text-slate-500">API Call-Site</dt>
+            <dd class="mt-1 text-h3 font-semibold text-accent">1 Line</dd>
+            <dd class="mt-0.5 text-xs text-slate-400">Decoupled from scene hierarchy</dd>
+          </div>
+          <div>
+            <dt class="font-mono text-xs uppercase tracking-wider text-slate-500">Memory</dt>
+            <dd class="mt-1 text-h3 font-semibold text-accent">Zero GC</dd>
+            <dd class="mt-0.5 text-xs text-slate-400">Pooled VisualElement hierarchies</dd>
+          </div>
+          <div>
+            <dt class="font-mono text-xs uppercase tracking-wider text-slate-500">Threading</dt>
+            <dd class="mt-1 text-h3 font-semibold text-accent">Thread-Safe</dd>
+            <dd class="mt-0.5 text-xs text-slate-400">Auto SynchronizationContext</dd>
+          </div>
+          <div>
+            <dt class="font-mono text-xs uppercase tracking-wider text-slate-500">Presentation</dt>
+            <dd class="mt-1 text-h3 font-semibold text-accent">100% USS</dd>
+            <dd class="mt-0.5 text-xs text-slate-400">Pure stylesheet theming</dd>
+          </div>
+        </dl>
+      </section>
+
+      <!-- Interactive WebGL Demo Section -->
+      <section id="interactive-demo" class="section" aria-labelledby="demo-heading">
+        <h2 id="demo-heading" class="section-title" data-eyebrow="Interactive Showcase">Live Unity WebGL demo &amp; controls</h2>
+        <p class="prose-body -mt-5 mb-6">
+          Test the notification package live in your browser. Trigger multiple toast variants, observe FIFO queueing, and inspect auto-dismiss timers and element recycling.
+        </p>
+
+        <div class="overflow-hidden rounded-card border border-slate-800 bg-slate-950 shadow-2xl">
+          <div class="relative aspect-video w-full bg-slate-950">
+            <iframe src="https://lalit0725.github.io/toast-notification-system/" title="Live Toast Notification System Unity WebGL demo" loading="lazy" class="h-full w-full border-0"></iframe>
+          </div>
+
+          <div class="border-t border-slate-800 bg-surface-elevated p-4 sm:p-5">
+            <div class="flex flex-wrap items-center justify-between gap-4">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="font-mono text-xs text-slate-400">Feature highlights:</span>
+                <span class="chip text-xs">Stacked Queueing</span>
+                <span class="chip text-xs">Auto Dismissal</span>
+                <span class="chip text-xs">Status Variants</span>
+                <span class="chip text-xs">Recycled VisualElements</span>
+              </div>
+              <div class="flex items-center gap-4">
+                <a class="link-underline font-mono text-xs text-accent" href="https://lalit0725.github.io/toast-notification-system/" target="_blank" rel="noopener noreferrer">
+                  Open demo in new tab ↗
+                </a>
+                <span class="text-slate-700">·</span>
+                <a class="font-mono text-xs text-emerald-400 hover:text-emerald-300 underline font-medium" href="https://assetstore.unity.com/packages/tools/gui/toast-notification-system-390896" target="_blank" rel="noopener noreferrer">
+                  Get on Asset Store ↗
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Core Architecture & Feature Matrix -->
+      <section id="architecture" class="section" aria-labelledby="arch-heading">
+        <h2 id="arch-heading" class="section-title" data-eyebrow="Architecture &amp; Features">Decoupled four-part notification engine</h2>
+        <p class="prose-body -mt-5 mb-8">
+          The package separates the trigger call site from visual element instantiation, thread marshaling, and styling concerns.
+        </p>
+
+        <div class="grid gap-5 md:grid-cols-2">
+          
+          <div class="card flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="font-mono text-xs font-semibold text-accent">01 / THREADING</span>
+                <span class="chip text-xs py-0.5">Thread Safety</span>
+              </div>
+              <h3 class="mt-3 text-base font-semibold text-white">Automatic Main-Thread Marshaling</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-300">
+                Unity UI Toolkit elements cannot be touched from background threads. The dispatcher captures the main thread's <code class="font-mono text-xs text-accent">SynchronizationContext</code> at startup, seamlessly routing calls from async tasks, websockets, and worker threads without throwing thread-access exceptions.
+              </p>
+            </div>
+            <div class="mt-4 border-t border-slate-800/80 pt-3 font-mono text-xs text-slate-500">
+              Zero scene setup or manual Dispatcher boilerplate needed by callers
+            </div>
+          </div>
+
+          <div class="card flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="font-mono text-xs font-semibold text-accent">02 / MEMORY</span>
+                <span class="chip text-xs py-0.5">Zero-GC Allocation</span>
+              </div>
+              <h3 class="mt-3 text-base font-semibold text-white">VisualElement Hierarchy Recycling</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-300">
+                Instantiating and destroying UXML nodes for rapid alerts creates garbage collector spikes and frame stutter. An internal object pool reuses pre-built VisualElement trees, resetting text, icon, and progress bindings before returning elements to the pool upon dismissal.
+              </p>
+            </div>
+            <div class="mt-4 border-t border-slate-800/80 pt-3 font-mono text-xs text-slate-500">
+              Zero steady-state heap allocations during continuous alerts
+            </div>
+          </div>
+
+          <div class="card flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="font-mono text-xs font-semibold text-accent">03 / LIFECYCLE</span>
+                <span class="chip text-xs py-0.5">Queue &amp; Stacking</span>
+              </div>
+              <h3 class="mt-3 text-base font-semibold text-white">FIFO Stacking &amp; Auto-Dismissal</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-300">
+                Coordinates layout positioning, maximum concurrent active toast limits, and sequential entry/exit animations. Each notification manages its own lifetime timer and progress indicator, with support for interactive click-to-dismiss overrides.
+              </p>
+            </div>
+            <div class="mt-4 border-t border-slate-800/80 pt-3 font-mono text-xs text-slate-500">
+              Gracefully prevents toast flood from overwhelming the viewport
+            </div>
+          </div>
+
+          <div class="card flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="font-mono text-xs font-semibold text-accent">04 / PRESENTATION</span>
+                <span class="chip text-xs py-0.5">USS Separation</span>
+              </div>
+              <h3 class="mt-3 text-base font-semibold text-white">Pure Stylesheet Theming</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-300">
+                Visual presentation is isolated into Unity Style Sheets (USS). Colors, margins, border radii, transitions, and status variants (Info, Success, Warning, Error) are controlled via CSS-like classes without changing or recompiling C# code.
+              </p>
+            </div>
+            <div class="mt-4 border-t border-slate-800/80 pt-3 font-mono text-xs text-slate-500">
+              Designers can customize visual themes without engineering intervention
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Developer Experience & Code Comparison -->
+      <section id="developer-experience" class="section" aria-labelledby="dx-heading">
+        <h2 id="dx-heading" class="section-title" data-eyebrow="Developer Experience">Call-site simplicity with zero boilerplate</h2>
+        <p class="prose-body -mt-5 mb-8">
+          Compare the traditional ad-hoc notification approach with the clean static API provided by the package.
+        </p>
+
+        <div class="grid gap-5 lg:grid-cols-2">
+          
+          <!-- Before: Scattered & Fragile -->
+          <div class="card border-red-950/40 bg-red-950/10 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 font-mono text-sm font-semibold text-red-400">
+                <span>✕</span> Without Package (Scattered &amp; Fragile)
+              </div>
+              <p class="mt-3 text-sm leading-relaxed text-slate-300">
+                Callers must hold references to scene canvas/visual trees, manually instantiate prefabs or UXML templates, manage coroutines for dismissal, and handle thread safety errors.
+              </p>
+              <div class="mt-4 rounded border border-red-900/30 bg-slate-950/90 p-4 font-mono text-xs text-red-300/80 overflow-x-auto leading-relaxed">
+                <span class="text-slate-500">// Requires scene reference &amp; coroutine runner</span><br>
+                var uiDoc = FindObjectOfType&lt;UIDocument&gt;();<br>
+                var el = toastUxml.Instantiate(); <span class="text-slate-500">// Allocates GC</span><br>
+                uiDoc.rootVisualElement.Add(el);<br>
+                StartCoroutine(DismissAfterDelay(el, 3f));<br>
+                <span class="text-red-400/90 block mt-2 font-medium">⚠️ Throws UnityException if called from background thread</span>
+              </div>
+            </div>
+            <div class="mt-4 border-t border-red-900/20 pt-3 font-mono text-xs text-slate-500">
+              High coupling · GC allocations on every trigger · Fragile threading
+            </div>
+          </div>
+
+          <!-- After: Clean Static API -->
+          <div class="card border-accent/40 bg-accent/5 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 font-mono text-sm font-semibold text-accent">
+                <span>✓</span> With Toast System (Single Clean Call)
+              </div>
+              <p class="mt-3 text-sm leading-relaxed text-slate-300">
+                Callers invoke a static entry point from anywhere in the codebase. Thread dispatch, element pooling, layout positioning, and auto-dismissal run autonomously.
+              </p>
+              <div class="mt-4 rounded border border-accent/20 bg-slate-950/90 p-4 font-mono text-xs text-slate-200 overflow-x-auto leading-relaxed">
+                <span class="text-slate-500">// One line from any game system or UI component</span><br>
+                <span class="text-accent">Toast</span>.Show(<span class="text-emerald-300">"Parameters saved successfully"</span>, ToastType.Success);<br><br>
+                <span class="text-slate-500">// Custom duration and warning status</span><br>
+                <span class="text-accent">Toast</span>.Show(<span class="text-amber-300">"Sensor connection degraded"</span>, ToastType.Warning, 4.0f);<br><br>
+                <span class="text-slate-500">// Completely safe from background threads or async tasks</span><br>
+                <span class="text-accent">Toast</span>.Show(<span class="text-cyan-300">"Sync complete"</span>, ToastType.Info);
+              </div>
+            </div>
+            <div class="mt-4 border-t border-accent/20 pt-3 font-mono text-xs text-accent">
+              Zero boilerplate · Thread-safe auto dispatch · Recycled elements
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Technology Stack -->
+      <section id="technology" class="section" aria-labelledby="tech-heading">
+        <h2 id="tech-heading" class="section-title" data-eyebrow="Technology Stack">Core technical foundation</h2>
+        <p class="prose-body -mt-5 mb-8">
+          The technical stack powering the package runtime and styling layers.
+        </p>
+
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <article class="card">
+            <h3 class="font-semibold text-white text-base">Unity Engine</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-400">Unity 2021 LTS+ through Unity 6 LTS runtime compatibility.</p>
+          </article>
+          <article class="card">
+            <h3 class="font-semibold text-white text-base">UI Toolkit</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-400">Declarative VisualElement hierarchy and event handling system.</p>
+          </article>
+          <article class="card">
+            <h3 class="font-semibold text-white text-base">C# / .NET</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-400">Static entry points, thread dispatch, and zero-GC object pooling.</p>
+          </article>
+          <article class="card">
+            <h3 class="font-semibold text-white text-base">USS Stylesheets</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-400">CSS-like flexbox styling, custom properties, and variant theming.</p>
+          </article>
+        </div>
+
+        <div class="mt-8 grid gap-4 sm:grid-cols-2">
+          <div class="card flex flex-col justify-between border-slate-800 bg-surface-elevated p-5">
+            <div>
+              <span class="font-mono text-xs uppercase tracking-wider text-accent">Unity Asset Store</span>
+              <h4 class="text-base font-semibold text-white mt-1">Get the Package</h4>
+              <p class="text-sm text-slate-300 mt-1">Import directly into your Unity project with full source code, UXML templates, and USS themes.</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-800">
+              <a href="https://assetstore.unity.com/packages/tools/gui/toast-notification-system-390896" target="_blank" rel="noopener noreferrer" class="link-underline font-mono text-sm text-accent">
+                View on Asset Store ↗
+              </a>
+            </div>
+          </div>
+
+          <div class="card flex flex-col justify-between border-slate-800 bg-surface-elevated p-5">
+            <div>
+              <span class="font-mono text-xs uppercase tracking-wider text-accent">Next Case Study</span>
+              <h4 class="text-base font-semibold text-white mt-1">Line DT — Process Twin &amp; PLC Bridge</h4>
+              <p class="text-sm text-slate-400 mt-1">Real-time 3D mixing skid twin with live Modbus TCP/OPC UA telemetry and UI Toolkit SCADA HUD.</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-800">
+              <a href="line-dt.html" class="link-underline font-mono text-sm text-accent">
+                Read the Line DT case study →
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="border-t border-slate-800 section">
+    <div class="mx-auto max-w-[88rem] px-4 sm:px-6">
+      <a href="../index.html#work" class="link-underline font-mono text-sm">← Explore other projects</a>
+    </div>
+  </footer>
+
+  <script>
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("reduce-motion");
+    }
+
+    const toc = document.querySelector(".toc");
+    const tocLinks = toc ? [...toc.querySelectorAll(".toc-link")] : [];
+    const tocTargets = tocLinks.map((link) => document.querySelector(link.getAttribute("href"))).filter(Boolean);
+
+    if (toc && "IntersectionObserver" in window) {
+      const setActive = (id) => tocLinks.forEach((link) => {
+        link.setAttribute("aria-current", link.getAttribute("href") === `#${id}` ? "true" : "false");
+      });
+      const observer = new IntersectionObserver((entries) => {
+        const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (visible[0]) setActive(visible[0].target.id);
+      }, { rootMargin: "-96px 0px -55% 0px", threshold: [0, 1] });
+      tocTargets.forEach((target) => observer.observe(target));
+      if (tocTargets[0]) setActive(tocTargets[0].id);
+    }
+  </script>
+  <script src="../js/ambient-dither.js" defer></script>
+</body>
+</html>

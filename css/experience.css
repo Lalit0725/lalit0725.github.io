@@ -1,0 +1,521 @@
+/* Experience Bento Section & Capabilities Matrix */
+
+/* Bento Grid Experience Section */
+.bento-section {
+  --bg-main: #06090e;
+  --bg-card: #0d131d;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(0, 240, 255, 0.3);
+  --accent: #00f0ff;
+  --text-main: #e2e8f0;
+  --text-muted: #8b99a8;
+  --text-tiny: #94a3b8;
+  --font-sans: 'Space Grotesk', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+  font-family: var(--font-sans), sans-serif;
+  color: var(--text-main);
+}
+
+.bento-section .eyebrow {
+  font-family: var(--font-mono), monospace;
+  font-size: 12px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+
+.bento-section .exp-heading {
+  font-size: 42px;
+  font-weight: 600;
+  margin: 0 0 16px;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+}
+
+.bento-section .section-header {
+  margin-bottom: 56px;
+}
+
+.bento-section .role-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.bento-section .role-header-secondary {
+  margin-top: 24px;
+}
+
+.bento-section .role-title-secondary {
+  font-size: 20px;
+}
+
+.bento-section .role-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.bento-section .role-meta {
+  font-family: var(--font-mono), monospace;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-main);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.bento-section .role-company {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+}
+
+.bento-section .meta-dot {
+  color: rgba(255, 255, 255, 0.3);
+  font-weight: normal;
+}
+
+.bento-section .role-duration {
+  color: #ffffff;
+  background: rgba(0, 240, 255, 0.1);
+  border: 1px solid rgba(0, 240, 255, 0.35);
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.12);
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(200px, auto);
+  gap: 16px;
+  margin-bottom: 64px;
+}
+
+.bento-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+}
+
+.bento-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-hover);
+}
+
+.bento-grid .span-2 {
+  grid-column: span 2;
+}
+
+.bento-grid .span-3 {
+  grid-column: span 3;
+}
+
+.bento-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.bento-card .card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.bento-card .card-title {
+  font-size: 19px;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+  line-height: 1.3;
+  color: var(--text-main);
+}
+
+.bento-card .card-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.past-roles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.past-role-card {
+  padding: 24px;
+}
+
+.past-role-card h3,
+.past-role-card h4 {
+  margin: 0 0 6px 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.past-role-card .meta {
+  font-family: var(--font-mono), monospace;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-main);
+  margin-bottom: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.past-role-card .meta .role-company {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+}
+
+.past-role-card .meta .role-duration {
+  color: #e2e8f0;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 3px 10px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.past-role-card p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0 0 12px 0;
+}
+
+.past-role-card p:last-child {
+  margin-bottom: 0;
+}
+
+.past-role-card strong {
+  color: var(--text-main);
+}
+
+@media (max-width: 900px) {
+  .bento-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .bento-grid .span-3 {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 650px) {
+  .bento-grid,
+  .past-roles {
+    grid-template-columns: 1fr;
+  }
+  .bento-grid .span-2,
+  .bento-grid .span-3 {
+    grid-column: span 1;
+  }
+  .bento-section .role-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+
+/* Skills Capability Matrix */
+.cap-matrix-section {
+  --cap-bg: #06090e;
+  --cap-card-bg: linear-gradient(145deg, #0d131d, #090e17);
+  --cap-border: rgba(255, 255, 255, 0.08);
+  --cap-border-hover: rgba(0, 240, 255, 0.35);
+  --cap-accent: #00f0ff;
+  --cap-text-main: #f1f5f9;
+  --cap-text-muted: #8b99a8;
+  --cap-text-soft: #cbd5e1;
+}
+
+.cap-kicker {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: var(--cap-accent);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.cap-main-heading {
+  font-family: var(--font-sans), sans-serif;
+  font-size: clamp(30px, 4.2vw, 48px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin: 0 0 14px;
+  max-width: 820px;
+}
+
+.cap-lead {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--cap-text-muted);
+  max-width: 720px;
+  margin: 0 0 36px;
+}
+
+.cap-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.cap-card {
+  background: var(--cap-card-bg);
+  border: 1px solid var(--cap-border);
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.cap-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--cap-border-hover);
+}
+
+.cap-card.active {
+  border-color: var(--cap-accent);
+  box-shadow: 0 0 24px rgba(0, 240, 255, 0.12), inset 0 0 0 1px rgba(0, 240, 255, 0.15);
+}
+
+.cap-trigger,
+.cap-details {
+  position: relative;
+  z-index: 2;
+}
+
+.cap-trigger {
+  all: unset;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.cap-trigger:focus-visible {
+  outline: 2px solid var(--cap-accent);
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+
+.cap-cardtop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.cap-icon {
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  background: #111a28;
+  color: var(--cap-accent);
+}
+
+.cap-arrow {
+  font-family: var(--font-mono), monospace;
+  font-size: 20px;
+  color: #64748b;
+  transition: transform 0.25s ease, color 0.25s ease;
+  display: inline-block;
+  line-height: 1;
+}
+
+.cap-card:hover .cap-arrow {
+  color: #94a3b8;
+}
+
+.cap-card.active .cap-arrow {
+  color: var(--cap-accent);
+  transform: rotate(45deg);
+}
+
+.cap-title {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: #ffffff;
+  letter-spacing: -0.015em;
+}
+
+.cap-desc {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--cap-text-muted);
+  margin: 0;
+  max-width: 460px;
+}
+
+.cap-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.cap-tool {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #101724;
+  border-radius: 8px;
+  padding: 5px 9px;
+  color: #cbd5e1;
+  font-family: var(--font-mono), monospace;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.cap-logo {
+  width: 18px;
+  height: 18px;
+  display: grid;
+  place-items: center;
+  border-radius: 4px;
+  background: #1e293b;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-weight: 800;
+  font-size: 10px;
+  color: #e2e8f0;
+  flex-shrink: 0;
+}
+
+.cap-logo.unity { background: #ffffff; color: #090d16; }
+.cap-logo.plc { background: #082f49; color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.25); }
+.cap-logo.py { background: #ffd84d; color: #18200e; }
+.cap-logo.node { background: #7cc84a; color: #102008; }
+.cap-logo.react { background: #164e63; color: #67e8f9; }
+.cap-logo.mongo { background: #16a34a; color: #ffffff; }
+.cap-logo.sql { background: #334155; color: #e2e8f0; }
+.cap-logo.azure { background: #0284c7; color: #ffffff; }
+.cap-logo.ai { background: #312e81; color: #c7d2fe; }
+
+/* Accordion Details */
+.cap-details {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cap-card.active .cap-details {
+  grid-template-rows: 1fr;
+}
+
+.cap-details-wrapper {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.cap-details-inner {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: 20px;
+  padding-top: 18px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.cap-detail-col h4 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #64748b;
+  margin: 0 0 10px;
+  font-family: var(--font-mono), monospace;
+  font-weight: 600;
+}
+
+.cap-detail-col p,
+.cap-detail-col li {
+  font-size: 13px;
+  line-height: 1.55;
+  color: #94a3b8;
+}
+
+.cap-detail-col ul {
+  padding-left: 16px;
+  margin: 0;
+}
+
+.cap-detail-col li {
+  margin-bottom: 4px;
+}
+
+.cap-detail-col li:last-child {
+  margin-bottom: 0;
+}
+
+.cap-footerline {
+  margin-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #64748b;
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .cap-grid { grid-template-columns: 1fr; }
+  .cap-details-inner { grid-template-columns: 1fr; gap: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cap-card, .cap-arrow, .cap-details {
+    transition: none !important;
+    transform: none !important;
+  }
+}

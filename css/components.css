@@ -1,0 +1,205 @@
+/* Shared Reusable Components */
+
+.section {
+  @apply mx-auto w-full max-w-7xl px-6 py-section-padding sm:px-8;
+}
+
+.section-title {
+  @apply mb-10 flex flex-col gap-2 text-h2 font-semibold text-text-primary;
+}
+
+.section-title::before {
+  @apply font-mono text-mono-label font-medium uppercase text-accent;
+  content: attr(data-eyebrow);
+}
+
+.card {
+  @apply rounded-card border border-border bg-surface-elevated p-6 text-text-secondary shadow-card;
+}
+
+.card-hover {
+  @apply transition duration-200 ease-out hover:-translate-y-1 hover:border-accent hover:shadow-hover-lift;
+}
+
+.architecture-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: 1.25rem;
+}
+
+.standards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 1rem;
+}
+
+.technology-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 1rem;
+}
+
+.chip {
+  @apply inline-flex items-center rounded-full border border-border bg-surface px-3 py-1 font-mono text-small text-text-secondary;
+}
+
+.chip.active {
+  @apply border-accent bg-accent/10 text-accent font-medium;
+}
+
+.timeline-entry {
+  @apply relative border-l border-border pb-8 pl-6 last:pb-0;
+}
+
+.timeline-entry::before {
+  @apply absolute -left-1.5 top-1.5 h-3 w-3 rounded-full border-2 border-surface bg-accent;
+  content: "";
+}
+
+.prose-body {
+  @apply max-w-prose text-body leading-body text-text-secondary;
+}
+
+.prose-body p + p {
+  @apply mt-5;
+}
+
+.link-underline {
+  @apply text-accent underline decoration-accent/50 underline-offset-4 transition-colors hover:text-accent-hover hover:decoration-accent-hover;
+}
+
+.toc {
+  @apply sticky top-24 z-10 max-h-screen overflow-y-auto rounded-card border border-border bg-surface-elevated p-4;
+}
+
+.toc-link {
+  @apply block border-l-2 border-transparent px-3 py-2 text-small text-text-muted transition-colors hover:border-accent hover:text-text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent;
+}
+
+.toc-link[aria-current="true"] {
+  @apply border-accent text-accent;
+}
+
+.reveal {
+  @apply opacity-100;
+}
+
+section[id] {
+  scroll-margin-top: 8rem;
+}
+
+.js .reveal {
+  @apply translate-y-3 opacity-0 transition duration-500 ease-out;
+}
+
+.js .reveal.is-visible {
+  @apply translate-y-0 opacity-100;
+}
+
+.term-wrapper {
+  @apply relative inline-flex items-baseline;
+}
+
+.term-trigger {
+  @apply inline-flex items-center gap-1 cursor-help border-b border-dotted border-accent/80 text-text-primary hover:text-accent font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-accent rounded-sm;
+}
+
+.term-icon {
+  @apply inline-flex items-center justify-center w-3.5 h-3.5 rounded-full bg-slate-800 text-[10px] text-accent font-mono leading-none;
+}
+
+.term-popover {
+  @apply pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 sm:w-80 opacity-0 invisible transition-all duration-200 z-50 rounded-card border border-border bg-surface-elevated/95 p-3.5 text-xs text-text-secondary shadow-2xl backdrop-blur-md font-sans font-normal leading-relaxed text-left;
+}
+
+.term-wrapper:hover .term-popover,
+.term-wrapper:focus-within .term-popover,
+.term-wrapper.is-active .term-popover {
+  @apply pointer-events-auto opacity-100 visible;
+}
+
+/* Sub-Navigation Bar */
+.subnav-bar {
+  @apply sticky top-[57px] z-30 w-full border-b border-border bg-surface/90 backdrop-blur-md transition-all;
+}
+
+.subnav-pill {
+  @apply inline-flex shrink-0 items-center rounded-full border border-border bg-surface-elevated px-3.5 py-1.5 font-mono text-xs text-text-secondary transition-all hover:border-accent hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent;
+}
+
+.subnav-pill[aria-current="true"],
+.subnav-pill.active {
+  @apply border-accent bg-accent/10 text-accent font-medium shadow-[0_0_12px_rgba(34,211,238,0.2)];
+}
+
+/* Interactive Tab Switcher */
+.interactive-tab-btn {
+  @apply rounded-md border border-border bg-surface px-4 py-2 font-mono text-xs text-text-muted transition-all hover:border-slate-700 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent;
+}
+
+.interactive-tab-btn[aria-selected="true"],
+.interactive-tab-btn.active {
+  @apply border-accent bg-accent/10 text-accent font-medium shadow-sm;
+}
+
+/* Case Study Grid Variants */
+@media (min-width: 1280px) {
+  .case-study-main {
+    display: grid;
+    grid-template-columns: minmax(12rem, 15rem) minmax(0, 1fr);
+    column-gap: 2rem;
+  }
+
+  .case-study-main > header,
+  .case-study-main > aside {
+    grid-column: 1 / -1;
+  }
+
+  .case-study-main > .toc {
+    grid-column: 1;
+    grid-row: 3;
+    align-self: start;
+    margin: 1.5rem 0 0;
+  }
+
+  .case-study-main > .divide-y {
+    grid-column: 2;
+    grid-row: 3;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 1279px) {
+  .toc {
+    @apply static hidden;
+  }
+}
+
+.case-study-dense .section {
+  max-width: none;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.scroll-smooth {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .card-hover {
+    @apply transform-none transition-none;
+  }
+
+  .js .reveal,
+  .js .reveal.is-visible {
+    @apply transform-none opacity-100 transition-none;
+  }
+}

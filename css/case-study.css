@@ -1,0 +1,39 @@
+/* Case Study Specific Widgets */
+
+/* Bento Stack Carousel (Line Digital Twin) */
+#bento-stack {
+  position: relative;
+  height: 380px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  overflow: visible;
+}
+
+#bento-stack .bento-card {
+  position: absolute;
+  width: 220px;
+  height: 240px;
+  padding: 1.25rem;
+  border-radius: 0.875rem;
+  border: 1px solid #334155;
+  background: #0f172a;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+  transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.35s, border-color 0.35s;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  will-change: transform;
+  text-align: left;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#bento-stack .bento-card:hover,
+#bento-stack .bento-card.is-active {
+  border-color: #22d3ee;
+  box-shadow: 0 0 35px rgba(34, 211, 238, 0.3), 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+}
