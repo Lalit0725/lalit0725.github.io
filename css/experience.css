@@ -412,6 +412,13 @@
   font-family: var(--font-mono), monospace;
   font-size: 12px;
   line-height: 1;
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.cap-tool:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: #151f30;
+  color: #f8fafc;
 }
 
 .cap-logo {
@@ -428,14 +435,25 @@
   flex-shrink: 0;
 }
 
+.cap-logo svg {
+  width: 12px;
+  height: 12px;
+  display: block;
+}
+
 .cap-logo.unity { background: #ffffff; color: #090d16; }
-.cap-logo.plc { background: #082f49; color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.25); }
-.cap-logo.py { background: #ffd84d; color: #18200e; }
-.cap-logo.node { background: #7cc84a; color: #102008; }
-.cap-logo.react { background: #164e63; color: #67e8f9; }
-.cap-logo.mongo { background: #16a34a; color: #ffffff; }
-.cap-logo.sql { background: #334155; color: #e2e8f0; }
-.cap-logo.azure { background: #0284c7; color: #ffffff; }
+.cap-logo.siemens { background: #009999; color: #ffffff; }
+.cap-logo.mqtt { background: #660066; color: #ffffff; }
+.cap-logo.py { background: #3776ab; color: #ffd43b; }
+.cap-logo.node { background: #222d25; color: #5fa04e; border: 1px solid rgba(95, 160, 78, 0.35); }
+.cap-logo.express { background: #1e293b; color: #f8fafc; border: 1px solid rgba(255, 255, 255, 0.15); }
+.cap-logo.mongo { background: #0f2e1b; color: #47a248; border: 1px solid rgba(71, 162, 72, 0.35); }
+.cap-logo.sqlite { background: #0c2638; color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.35); }
+.cap-logo.pandas { background: #150458; color: #ffffff; }
+.cap-logo.meta { background: #0467df; color: #ffffff; }
+.cap-logo.onnx { background: #005ced; color: #ffffff; }
+.cap-logo.yolo { background: #111f68; color: #ffffff; }
+.cap-logo.scikit { background: #f7931e; color: #ffffff; }
 .cap-logo.ai { background: #312e81; color: #c7d2fe; }
 
 /* Accordion Details */

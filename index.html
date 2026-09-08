@@ -25,7 +25,7 @@
       <a href="#hero" class="font-mono text-sm font-semibold tracking-tight text-white">Lalit&nbsp;M.</a>
       <div class="hidden items-center gap-7 font-mono text-xs text-slate-400 md:flex">
         <a href="#what-i-do">What I do</a>
-        <a href="#work">Selected work</a>
+        <a href="#work">Work</a>
         <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
@@ -36,7 +36,7 @@
     <div id="mobile-menu" class="hidden border-t border-slate-800 px-4 py-3 md:hidden">
       <div class="mx-auto grid max-w-5xl gap-1 font-mono text-sm">
         <a class="menu-link px-2 py-2" href="#what-i-do">What I do</a>
-        <a class="menu-link px-2 py-2" href="#work">Selected work</a>
+        <a class="menu-link px-2 py-2" href="#work">Work</a>
         <a class="menu-link px-2 py-2" href="#experience">Experience</a>
         <a class="menu-link px-2 py-2" href="#skills">Skills</a>
         <a class="menu-link px-2 py-2" href="#contact">Contact</a>
@@ -96,7 +96,7 @@
     </section>
 
     <section id="work" class="border-b border-slate-800 section">
-      <h2 class="section-title" data-eyebrow="Case studies">Selected work</h2>
+      <h2 class="section-title" data-eyebrow="Case studies &amp; tools">Work</h2>
       <div class="mt-8 grid gap-4">
         <article class="card card-hover">
           <div class="flex flex-wrap items-baseline justify-between gap-3">
@@ -153,6 +153,88 @@
             <a href="https://assetstore.unity.com/packages/tools/gui/toast-notification-system-390896" target="_blank" rel="noopener noreferrer" class="link-underline font-mono text-xs text-slate-400 hover:text-accent">Unity Asset Store ↗</a>
           </div>
         </article>
+      </div>
+
+      <!-- Quick-View Carousel: Tools & Explorations -->
+      <div class="mt-10 border-t border-slate-800/80 pt-8">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <span class="font-mono text-xs uppercase tracking-wider text-accent">// Explorations &amp; Utilities</span>
+            <h3 class="mt-1 text-base font-semibold text-white">Interactive quick-view</h3>
+          </div>
+          <div class="flex items-center gap-2 font-mono text-xs" role="tablist" aria-label="Tool carousel tabs">
+            <button type="button" class="tool-tab-btn rounded-md border border-accent bg-accent/10 px-3 py-1 text-accent font-medium transition-colors" data-slide="0" role="tab" aria-selected="true" aria-controls="tool-slide-0" id="tab-0">
+              01 / Custom Editor Tool
+            </button>
+          </div>
+        </div>
+
+        <div class="mt-5 relative">
+          <!-- Slide 0: Custom Editor Multi-Tagging Tool -->
+          <article id="tool-slide-0" class="tool-slide card" role="tabpanel" aria-labelledby="tab-0">
+            <div class="flex flex-wrap items-baseline justify-between gap-3">
+              <h4 class="text-base font-semibold text-white">Custom Editor — Multi-Tagging &amp; Layer Utility</h4>
+              <span class="chip text-xs">UI Toolkit Exploration</span>
+            </div>
+            
+            <p class="mt-3 text-sm leading-relaxed text-slate-300">
+              Built during my early deep-dive into Unity's then-new UI Toolkit to learn declarative UXML/USS editor scripting and move beyond legacy IMGUI. Solved an everyday workflow bottleneck in large digital twin setups.
+            </p>
+
+            <div class="mt-5 grid grid-cols-1 gap-6 lg:grid-cols-12 lg:items-center">
+              <div class="lg:col-span-6">
+                <div class="overflow-hidden rounded-lg border border-slate-800 bg-slate-950 shadow-lg">
+                  <video data-src="assets/videos/Custom%20Editor%20UI%20Toolkit%20Tag.mp4" controls preload="none" playsinline class="lazy-video aspect-video w-full object-cover">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </div>
+
+              <div class="space-y-3 font-mono text-xs text-slate-300 lg:col-span-6">
+                <div class="flex items-start gap-2.5">
+                  <span class="text-accent font-bold">▹</span>
+                  <div>
+                    <strong class="text-white">Multi-Selection Batching:</strong>
+                    <span class="text-slate-300"> Select multiple GameObjects across deep scene hierarchies and batch-assign tags and layer masks in a single click.</span>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-2.5">
+                  <span class="text-accent font-bold">▹</span>
+                  <div>
+                    <strong class="text-white">Early UI Toolkit Adoption:</strong>
+                    <span class="text-slate-300"> Written entirely with declarative <code class="rounded bg-slate-800 px-1 py-0.5 text-[11px] text-slate-200">.uxml</code> templates and <code class="rounded bg-slate-800 px-1 py-0.5 text-[11px] text-slate-200">.uss</code> styling, eliminating IMGUI per-frame layout recalculations.</span>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-2.5">
+                  <span class="text-accent font-bold">▹</span>
+                  <div>
+                    <strong class="text-white">Scene Setup Acceleration:</strong>
+                    <span class="text-slate-300"> Eliminated manual, repetitive tag configuration across hundreds of industrial equipment and sensor nodes in digital twin scenes.</span>
+                  </div>
+                </div>
+
+                <div class="flex flex-wrap gap-2 pt-2" aria-label="Technology used">
+                  <span class="chip">Unity Editor Scripting</span>
+                  <span class="chip">UI Toolkit</span>
+                  <span class="chip">UXML / USS</span>
+                  <span class="chip">C#</span>
+                  <span class="chip">EditorWindow</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Carousel navigation footer / controls -->
+        <div class="mt-4 flex items-center justify-between text-xs font-mono text-slate-400">
+          <span id="tool-slide-counter">Slide 1 of 1</span>
+          <div class="flex items-center gap-2">
+            <button id="tool-prev-btn" type="button" aria-label="Previous slide" disabled class="rounded border border-border bg-surface px-2.5 py-1 text-slate-500 opacity-40 cursor-not-allowed transition-colors">← Prev</button>
+            <button id="tool-next-btn" type="button" aria-label="Next slide" disabled class="rounded border border-border bg-surface px-2.5 py-1 text-slate-500 opacity-40 cursor-not-allowed transition-colors">Next →</button>
+          </div>
+        </div>
       </div>
     </section>
 <section id="experience" class="border-b border-slate-800 section bento-section">
@@ -296,13 +378,13 @@
         <h3 class="cap-title">Realtime 3D &amp; Unity</h3>
         <p class="cap-desc">Build interactive realtime applications, digital twins and technical visualization systems.</p>
         <div class="cap-tools">
-          <span class="cap-tool"><span class="cap-logo unity">U</span>Unity</span>
-          <span class="cap-tool"><span class="cap-logo">C#</span>C#</span>
-          <span class="cap-tool"><span class="cap-logo">URP</span>URP</span>
-          <span class="cap-tool"><span class="cap-logo">UI</span>UI Toolkit</span>
-          <span class="cap-tool"><span class="cap-logo">SG</span>Shader Graph</span>
-          <span class="cap-tool"><span class="cap-logo">TL</span>Timeline</span>
-          <span class="cap-tool"><span class="cap-logo">CM</span>Cinemachine</span>
+          <span class="cap-tool"><span class="cap-logo unity"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="m12.9288 4.2939 3.7997 2.1929c.1366.077.1415.2905 0 .3675l-4.515 2.6076a.4192.4192 0 0 1-.4246 0L7.274 6.8543c-.139-.0745-.1415-.293 0-.3675l3.7972-2.193V0L1.3758 5.5977V16.793l3.7177-2.1456v-4.3858c-.0025-.1565.1813-.2682.318-.1838l4.5148 2.6076a.4252.4252 0 0 1 .2136.3676v5.2127c.0025.1565-.1813.2682-.3179.1838l-3.7996-2.1929-3.7178 2.1457L12 24l9.6954-5.5977-3.7178-2.1457-3.7996 2.1929c-.1341.082-.3229-.0248-.3179-.1838V13.053c0-.1565.087-.2956.2136-.3676l4.5149-2.6076c.134-.082.3228.0224.3179.1838v4.3858l3.7177 2.1456V5.5977L12.9288 0Z"/></svg></span>Unity</span>
+          <span class="cap-tool">C#</span>
+          <span class="cap-tool">URP</span>
+          <span class="cap-tool">UI Toolkit</span>
+          <span class="cap-tool">Shader Graph</span>
+          <span class="cap-tool">Timeline</span>
+          <span class="cap-tool">Cinemachine</span>
         </div>
       </button>
       <div class="cap-details" id="cap-details-0" role="region" aria-labelledby="cap-btn-0">
@@ -335,12 +417,12 @@
         <h3 class="cap-title">Industrial Connectivity</h3>
         <p class="cap-desc">Connect software to PLCs, machines and industrial data sources.</p>
         <div class="cap-tools">
-          <span class="cap-tool"><span class="cap-logo plc">UA</span>OPC UA</span>
-          <span class="cap-tool"><span class="cap-logo plc">S7</span>Siemens S7</span>
-          <span class="cap-tool"><span class="cap-logo plc">MB</span>Modbus</span>
-          <span class="cap-tool"><span class="cap-logo plc">EIP</span>EtherNet/IP</span>
-          <span class="cap-tool"><span class="cap-logo">MQ</span>MQTT</span>
-          <span class="cap-tool"><span class="cap-logo plc">PLC</span>PLC Integration</span>
+          <span class="cap-tool">OPC UA</span>
+          <span class="cap-tool"><span class="cap-logo siemens"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M1.478 10.016c.24 0 .59.046 1.046.14v.726a2.465 2.465 0 0 0-.946-.213c-.41 0-.615.118-.615.354 0 .088.041.16.124.216.069.045.258.14.568.286.446.208.743.388.89.541.176.182.264.417.264.705 0 .415-.172.73-.516.949-.279.176-.64.264-1.085.264-.375 0-.753-.046-1.133-.139v-.755c.41.135.774.203 1.09.203.437 0 .655-.121.655-.362a.302.302 0 0 0-.095-.227c-.065-.065-.232-.155-.5-.27-.481-.208-.795-.384-.94-.53a.999.999 0 0 1-.284-.73c0-.377.137-.666.413-.864.272-.196.626-.294 1.064-.294zm21.19 0c.246 0 .565.04.956.123l.09.016v.727a2.471 2.471 0 0 0-.948-.213c-.409 0-.612.118-.612.354 0 .088.04.16.123.216.066.043.256.139.57.286.443.208.74.388.889.541.176.182.264.417.264.705 0 .415-.172.73-.514.949-.28.176-.643.264-1.087.264-.376 0-.754-.046-1.134-.139v-.755c.407.135.77.203 1.09.203.437 0 .655-.121.655-.362 0-.09-.03-.166-.092-.227-.066-.065-.233-.155-.503-.27-.48-.206-.793-.382-.94-.53a.997.997 0 0 1-.284-.732c0-.376.137-.664.413-.862.272-.196.627-.294 1.064-.294zm-12.674.066l.92 2.444.942-2.444h1.257v3.825h-.968v-2.708l-1.072 2.747h-.632l-1.052-2.747v2.708H8.67v-3.825zm-5.587 0v3.825H3.386v-3.825zm3.554 0v.692H6.327v.864H7.75v.63H6.327v.908h1.677v.73h-2.66v-3.824zm8.707 0v.692h-1.634v.864h1.422v.63h-1.422v.908h1.677v.73H14.05v-3.824zm1.898 0l1.255 2.56v-2.56h.719v3.825h-1.15l-1.288-2.595v2.595h-.72v-3.825z"/></svg></span>Siemens S7</span>
+          <span class="cap-tool">Modbus</span>
+          <span class="cap-tool">EtherNet/IP</span>
+          <span class="cap-tool"><span class="cap-logo mqtt"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M10.657 23.994h-9.45A1.212 1.212 0 0 1 0 22.788v-9.18h.071c5.784 0 10.504 4.65 10.586 10.386Zm7.606 0h-4.045C14.135 16.246 7.795 9.977 0 9.942V6.038h.071c9.983 0 18.121 8.044 18.192 17.956Zm4.53 0h-.97C21.754 12.071 11.995 2.407 0 2.372v-1.16C0 .55.544.006 1.207.006h7.64C15.733 2.49 21.257 7.789 24 14.508v8.291c0 .663-.544 1.195-1.207 1.195ZM16.713.006h6.092A1.19 1.19 0 0 1 24 1.2v5.914c-.91-1.242-2.046-2.65-3.158-3.762C19.588 2.11 18.122.987 16.714.005Z"/></svg></span>MQTT</span>
+          <span class="cap-tool">PLC Integration</span>
         </div>
       </button>
       <div class="cap-details" id="cap-details-1" role="region" aria-labelledby="cap-btn-1">
@@ -373,12 +455,12 @@
         <h3 class="cap-title">Software Architecture</h3>
         <p class="cap-desc">Design maintainable systems that can grow beyond the initial prototype.</p>
         <div class="cap-tools">
-          <span class="cap-tool"><span class="cap-logo">S</span>SOLID</span>
-          <span class="cap-tool"><span class="cap-logo">MVU</span>MVU</span>
-          <span class="cap-tool"><span class="cap-logo">DI</span>Zenject / DI</span>
-          <span class="cap-tool"><span class="cap-logo">API</span>REST APIs</span>
-          <span class="cap-tool"><span class="cap-logo">WS</span>WebSockets</span>
-          <span class="cap-tool"><span class="cap-logo">μS</span>Microservices</span>
+          <span class="cap-tool">SOLID</span>
+          <span class="cap-tool">MVU</span>
+          <span class="cap-tool">Zenject / DI</span>
+          <span class="cap-tool">REST APIs</span>
+          <span class="cap-tool">WebSockets</span>
+          <span class="cap-tool">Microservices</span>
         </div>
       </button>
       <div class="cap-details" id="cap-details-2" role="region" aria-labelledby="cap-btn-2">
@@ -411,13 +493,12 @@
         <h3 class="cap-title">Backend &amp; Data</h3>
         <p class="cap-desc">Process, store and serve information between industrial systems, applications and users.</p>
         <div class="cap-tools">
-          <span class="cap-tool"><span class="cap-logo py">Py</span>Python</span>
-          <span class="cap-tool"><span class="cap-logo node">N</span>Node.js</span>
-          <span class="cap-tool"><span class="cap-logo node">Ex</span>Express</span>
-          <span class="cap-tool"><span class="cap-logo mongo">M</span>MongoDB</span>
-          <span class="cap-tool"><span class="cap-logo sql">SQL</span>SQL / SQLite</span>
-          <span class="cap-tool"><span class="cap-logo py">Pd</span>Pandas</span>
-          <span class="cap-tool"><span class="cap-logo">WS</span>WebSockets</span>
+          <span class="cap-tool"><span class="cap-logo py"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/></svg></span>Python</span>
+          <span class="cap-tool"><span class="cap-logo node"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M11.998,24c-0.321,0-0.641-0.084-0.922-0.247l-2.936-1.737c-0.438-0.245-0.224-0.332-0.08-0.383 c0.585-0.203,0.703-0.25,1.328-0.604c0.065-0.037,0.151-0.023,0.218,0.017l2.256,1.339c0.082,0.045,0.197,0.045,0.272,0l8.795-5.076 c0.082-0.047,0.134-0.141,0.134-0.238V6.921c0-0.099-0.053-0.192-0.137-0.242l-8.791-5.072c-0.081-0.047-0.189-0.047-0.271,0 L3.075,6.68C2.99,6.729,2.936,6.825,2.936,6.921v10.15c0,0.097,0.054,0.189,0.139,0.235l2.409,1.392 c1.307,0.654,2.108-0.116,2.108-0.89V7.787c0-0.142,0.114-0.253,0.256-0.253h1.115c0.139,0,0.255,0.112,0.255,0.253v10.021 c0,1.745-0.95,2.745-2.604,2.745c-0.508,0-0.909,0-2.026-0.551L2.28,18.675c-0.57-0.329-0.922-0.945-0.922-1.604V6.921 c0-0.659,0.353-1.275,0.922-1.603l8.795-5.082c0.557-0.315,1.296-0.315,1.848,0l8.794,5.082c0.57,0.329,0.924,0.944,0.924,1.603 v10.15c0,0.659-0.354,1.273-0.924,1.604l-8.794,5.078C12.643,23.916,12.324,24,11.998,24z M19.099,13.993 c0-1.9-1.284-2.406-3.987-2.763c-2.731-0.361-3.009-0.548-3.009-1.187c0-0.528,0.235-1.233,2.258-1.233 c1.807,0,2.473,0.389,2.747,1.607c0.024,0.115,0.129,0.199,0.247,0.199h1.141c0.071,0,0.138-0.031,0.186-0.081 c0.048-0.054,0.074-0.123,0.067-0.196c-0.177-2.098-1.571-3.076-4.388-3.076c-2.508,0-4.004,1.058-4.004,2.833 c0,1.925,1.488,2.457,3.895,2.695c2.88,0.282,3.103,0.703,3.103,1.269c0,0.983-0.789,1.402-2.642,1.402 c-2.327,0-2.839-0.584-3.011-1.742c-0.02-0.124-0.126-0.215-0.253-0.215h-1.137c-0.141,0-0.254,0.112-0.254,0.253 c0,1.482,0.806,3.248,4.655,3.248C17.501,17.007,19.099,15.91,19.099,13.993z"/></svg></span>Node.js</span>
+          <span class="cap-tool"><span class="cap-logo express"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.262 16.666h1.146l6.975-9.325H19.22zm9.778 1.441v.004l-4.334-5.706-.557.74 4.873 6.682H.945V4.173h9.505l5.026 6.7.574-.772-4.374-5.928h.003l-.719-.945H0v17.544h24zM10.917 8.705a3.8 3.8 0 0 0-1.292-1.183q-.796-.45-1.916-.45c-.746 0-1.37.14-1.906.424a3.76 3.76 0 0 0-1.31 1.12 4.9 4.9 0 0 0-.75 1.581 7.17 7.17 0 0 0 0 3.696c.148.567.402 1.101.75 1.573a3.5 3.5 0 0 0 1.31 1.066q.803.39 1.906.389 1.77 0 2.739-.868.966-.867 1.328-2.457h-1.139q-.271 1.084-.977 1.734-.704.651-1.952.65-.812 0-1.392-.342a3.1 3.1 0 0 1-.957-.869 3.5 3.5 0 0 1-.551-1.182 5 5 0 0 1-.17-1.133 9 9 0 0 0-.015-.286 4.5 4.5 0 0 1 .015-.829c.047-.418.147-.83.296-1.223A3.7 3.7 0 0 1 5.54 9.05a2.9 2.9 0 0 1 .922-.742q.541-.28 1.246-.28c.47 0 .869.093 1.23.28q.541.281.922.742.379.461.587 1.057t.225 1.246H5.625l.004.957h6.182a7.3 7.3 0 0 0-.18-1.924 4.9 4.9 0 0 0-.715-1.68z"/></svg></span>Express</span>
+          <span class="cap-tool"><span class="cap-logo mongo"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115-.28-.394-.53-.954-.735-1.44-.036.495-.055.685-.523 1.184-.723.566-4.438 3.682-4.74 10.02-.282 5.912 4.27 9.435 4.888 9.884l.07.05A73.49 73.49 0 0111.91 24h.481c.114-1.032.284-2.056.51-3.07.417-.296.604-.463.85-.693a11.342 11.342 0 003.639-8.464c.01-.814-.103-1.662-.197-2.218zm-5.336 8.195s0-8.291.275-8.29c.213 0 .49 10.695.49 10.695-.381-.045-.765-1.76-.765-2.405z"/></svg></span>MongoDB</span>
+          <span class="cap-tool"><span class="cap-logo sqlite"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.678.521c-1.032-.92-2.28-.55-3.513.544a8.71 8.71 0 0 0-.547.535c-2.109 2.237-4.066 6.38-4.674 9.544.237.48.422 1.093.544 1.561a13.044 13.044 0 0 1 .164.703s-.019-.071-.096-.296l-.05-.146a1.689 1.689 0 0 0-.033-.08c-.138-.32-.518-.995-.686-1.289-.143.423-.27.818-.376 1.176.484.884.778 2.4.778 2.4s-.025-.099-.147-.442c-.107-.303-.644-1.244-.772-1.464-.217.804-.304 1.346-.226 1.478.152.256.296.698.422 1.186.286 1.1.485 2.44.485 2.44l.017.224a22.41 22.41 0 0 0 .056 2.748c.095 1.146.273 2.13.5 2.657l.155-.084c-.334-1.038-.47-2.399-.41-3.967.09-2.398.642-5.29 1.661-8.304 1.723-4.55 4.113-8.201 6.3-9.945-1.993 1.8-4.692 7.63-5.5 9.788-.904 2.416-1.545 4.684-1.931 6.857.666-2.037 2.821-2.912 2.821-2.912s1.057-1.304 2.292-3.166c-.74.169-1.955.458-2.362.629-.6.251-.762.337-.762.337s1.945-1.184 3.613-1.72C21.695 7.9 24.195 2.767 21.678.521m-18.573.543A1.842 1.842 0 0 0 1.27 2.9v16.608a1.84 1.84 0 0 0 1.835 1.834h9.418a22.953 22.953 0 0 1-.052-2.707c-.006-.062-.011-.141-.016-.2a27.01 27.01 0 0 0-.473-2.378c-.121-.47-.275-.898-.369-1.057-.116-.197-.098-.31-.097-.432 0-.12.015-.245.037-.386a9.98 9.98 0 0 1 .234-1.045l.217-.028c-.017-.035-.014-.065-.031-.097l-.041-.381a32.8 32.8 0 0 1 .382-1.194l.2-.019c-.008-.016-.01-.038-.018-.053l-.043-.316c.63-3.28 2.587-7.443 4.8-9.791.066-.069.133-.128.198-.194Z"/></svg></span>SQL / SQLite</span>
+          <span class="cap-tool">WebSockets</span>
         </div>
       </button>
       <div class="cap-details" id="cap-details-3" role="region" aria-labelledby="cap-btn-3">
@@ -450,12 +531,12 @@
         <h3 class="cap-title">XR &amp; Spatial Computing</h3>
         <p class="cap-desc">Build AR and VR experiences where spatial context is part of the solution.</p>
         <div class="cap-tools">
-          <span class="cap-tool"><span class="cap-logo">AR</span>AR Foundation</span>
-          <span class="cap-tool"><span class="cap-logo">XR</span>OpenXR</span>
-          <span class="cap-tool"><span class="cap-logo">MQ</span>Meta Quest</span>
-          <span class="cap-tool"><span class="cap-logo">IM</span>Immersal</span>
-          <span class="cap-tool"><span class="cap-logo">SL</span>SLAM</span>
-          <span class="cap-tool"><span class="cap-logo unity">U</span>Unity</span>
+          <span class="cap-tool">AR Foundation</span>
+          <span class="cap-tool">OpenXR</span>
+          <span class="cap-tool"><span class="cap-logo meta"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.915 4.03c-1.968 0-3.683 1.28-4.871 3.113C.704 9.208 0 11.883 0 14.449c0 .706.07 1.369.21 1.973a6.624 6.624 0 0 0 .265.86 5.297 5.297 0 0 0 .371.761c.696 1.159 1.818 1.927 3.593 1.927 1.497 0 2.633-.671 3.965-2.444.76-1.012 1.144-1.626 2.663-4.32l.756-1.339.186-.325c.061.1.121.196.183.3l2.152 3.595c.724 1.21 1.665 2.556 2.47 3.314 1.046.987 1.992 1.22 3.06 1.22 1.075 0 1.876-.355 2.455-.843a3.743 3.743 0 0 0 .81-.973c.542-.939.861-2.127.861-3.745 0-2.72-.681-5.357-2.084-7.45-1.282-1.912-2.957-2.93-4.716-2.93-1.047 0-2.088.467-3.053 1.308-.652.57-1.257 1.29-1.82 2.05-.69-.875-1.335-1.547-1.958-2.056-1.182-.966-2.315-1.303-3.454-1.303zm10.16 2.053c1.147 0 2.188.758 2.992 1.999 1.132 1.748 1.647 4.195 1.647 6.4 0 1.548-.368 2.9-1.839 2.9-.58 0-1.027-.23-1.664-1.004-.496-.601-1.343-1.878-2.832-4.358l-.617-1.028a44.908 44.908 0 0 0-1.255-1.98c.07-.109.141-.224.211-.327 1.12-1.667 2.118-2.602 3.358-2.602zm-10.201.553c1.265 0 2.058.791 2.675 1.446.307.327.737.871 1.234 1.579l-1.02 1.566c-.757 1.163-1.882 3.017-2.837 4.338-1.191 1.649-1.81 1.817-2.486 1.817-.524 0-1.038-.237-1.383-.794-.263-.426-.464-1.13-.464-2.046 0-2.221.63-4.535 1.66-6.088.454-.687.964-1.226 1.533-1.533a2.264 2.264 0 0 1 1.088-.285z"/></svg></span>Meta Quest</span>
+          <span class="cap-tool">Immersal</span>
+          <span class="cap-tool">SLAM</span>
+          <span class="cap-tool"><span class="cap-logo unity"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="m12.9288 4.2939 3.7997 2.1929c.1366.077.1415.2905 0 .3675l-4.515 2.6076a.4192.4192 0 0 1-.4246 0L7.274 6.8543c-.139-.0745-.1415-.293 0-.3675l3.7972-2.193V0L1.3758 5.5977V16.793l3.7177-2.1456v-4.3858c-.0025-.1565.1813-.2682.318-.1838l4.5148 2.6076a.4252.4252 0 0 1 .2136.3676v5.2127c.0025.1565-.1813.2682-.3179.1838l-3.7996-2.1929-3.7178 2.1457L12 24l9.6954-5.5977-3.7178-2.1457-3.7996 2.1929c-.1341.082-.3229-.0248-.3179-.1838V13.053c0-.1565.087-.2956.2136-.3676l4.5149-2.6076c.134-.082.3228.0224.3179.1838v4.3858l3.7177 2.1456V5.5977L12.9288 0Z"/></svg></span>Unity</span>
         </div>
       </button>
       <div class="cap-details" id="cap-details-4" role="region" aria-labelledby="cap-btn-4">
@@ -488,12 +569,13 @@
         <h3 class="cap-title">AI &amp; Computer Vision</h3>
         <p class="cap-desc">Integrate inference and visual intelligence into applications where it creates practical value.</p>
         <div class="cap-tools">
-          <span class="cap-tool"><span class="cap-logo ai">ST</span>Unity Sentis</span>
-          <span class="cap-tool"><span class="cap-logo">ON</span>ONNX</span>
-          <span class="cap-tool"><span class="cap-logo ai">YO</span>YOLO</span>
-          <span class="cap-tool"><span class="cap-logo ai">OCR</span>OCR</span>
-          <span class="cap-tool"><span class="cap-logo py">SK</span>scikit-learn</span>
-          <span class="cap-tool"><span class="cap-logo py">Py</span>Python</span>
+          <span class="cap-tool"><span class="cap-logo unity"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="m12.9288 4.2939 3.7997 2.1929c.1366.077.1415.2905 0 .3675l-4.515 2.6076a.4192.4192 0 0 1-.4246 0L7.274 6.8543c-.139-.0745-.1415-.293 0-.3675l3.7972-2.193V0L1.3758 5.5977V16.793l3.7177-2.1456v-4.3858c-.0025-.1565.1813-.2682.318-.1838l4.5148 2.6076a.4252.4252 0 0 1 .2136.3676v5.2127c.0025.1565-.1813.2682-.3179.1838l-3.7996-2.1929-3.7178 2.1457L12 24l9.6954-5.5977-3.7178-2.1457-3.7996 2.1929c-.1341.082-.3229-.0248-.3179-.1838V13.053c0-.1565.087-.2956.2136-.3676l4.5149-2.6076c.134-.082.3228.0224.3179.1838v4.3858l3.7177 2.1456V5.5977L12.9288 0Z"/></svg></span>Unity Sentis</span>
+          <span class="cap-tool"><span class="cap-logo onnx"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M23.0325 11.2963c-.0503 0-.1006 0-.1508.0126l-4.021-7.4387c.0754-.1383.1131-.289.1131-.4524 0-.5403-.4398-.9675-.9675-.9675-.2765 0-.5278.113-.7037.3015L9.286 1.156C9.2357.6785 8.821.3016 8.3184.3016c-.5277 0-.9675.4398-.9675.9675 0 .1634.0377.3141.113.4524l-6.245 8.9591c-.0753-.0251-.1633-.0377-.2513-.0377-.5403 0-.9675.4398-.9675.9676 0 .5403.4398.9675.9675.9675h.0377l3.3676 8.3309c-.0503.1257-.088.2639-.088.402 0 .5404.4398.9676.9676.9676.2764 0 .5277-.113.7036-.3015l10.1152.9926c.1005.4273.49.7288.9424.7288.5403 0 .9676-.4398.9676-.9675 0-.2388-.088-.465-.2262-.6283l5.1141-8.8712c.0503.0126.1005.0126.1634.0126.5403 0 .9675-.4398.9675-.9676 0-.5403-.4272-.98-.9675-.98zM17.2272 4.021c.1131.1508.2765.264.4524.3267l-1.533 11.5728c-.1005.0252-.1885.0503-.2764.1005L7.4513 8.708c.0251-.0754.0377-.1634.0377-.2514 0-.0628-.0126-.1256-.0126-.1884zm4.8754 8.5068l-5.177 3.556a1.105 1.105 0 0 0-.1256-.0753L18.3455 4.335h.0126l3.9456 7.288c-.1508.1759-.2388.3895-.2388.6408 0 .1005.0126.1885.0377.2638zM6.3832 7.5016c-.4649.0754-.8293.4775-.8293.955v.0628l-3.4555 2.0481 5.378-7.7026zm.3519 1.91c.1256-.0252.2513-.088.3518-.1634l8.356 7.2628c-.0377.113-.0628.2262-.0628.3518v.0503l-9.311 3.845c-.1382-.201-.3518-.3518-.6031-.402zm8.8963 8.1172c.1257.1382.3016.2513.5026.289l.465 4.046c-.201.1006-.3519.264-.4524.4524l-9.8136-.955zm1.1435.2136c.3267-.1633.5403-.49.5403-.867 0-.088-.0126-.1634-.0377-.2513l4.7372-3.2545-4.8 8.331zm.2513-14.3497l-9.889 4.31-.1131-.0755 1.2565-5.3906h.0377c.3393 0 .6409-.1759.8168-.4397l7.891 1.5706zM1.935 11.6105c0-.0629-.0126-.1257-.0126-.1885l3.9079-2.2995c.0754.0754.1633.1508.2638.201L4.8252 20.243l-3.2043-7.9036c.1885-.176.3142-.4398.3142-.7288Z"/></svg></span>ONNX</span>
+          <span class="cap-tool"><span class="cap-logo yolo"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.25 0c-3.05 0-5.52 2.477-5.52 5.523 0 3.842-3.125 6.967-6.972 6.967-1.506 0-2.894-.46-4.03-1.26 1.105 1.98 2.765 3.6 4.759 4.67v2.51c0 3.04 2.428 5.56 5.463 5.59 3.07 0 5.58-2.46 5.58-5.52V15.9c3.64-1.96 6.16-5.8 6.23-10.208v-.165C23.76 2.477 21.28 0 18.25 0ZM5.758.0002C2.715.0002.2399 2.477.2399 5.523c0 3.044 2.4751 5.517 5.5181 5.517 3.044 0 5.512-2.473 5.512-5.517 0-3.046-2.468-5.5228-5.512-5.5228Z"/></svg></span>YOLO</span>
+          <span class="cap-tool">OCR</span>
+          <span class="cap-tool"><span class="cap-logo scikit"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M15.601 5.53c-1.91.035-3.981.91-5.63 2.56-2.93 2.93-2.083 8.53-1.088 9.525.805.804 6.595 1.843 9.526-1.088a9.74 9.74 0 0 0 .584-.643c.043-.292.205-.66.489-1.106a1.848 1.848 0 0 1-.537.176c-.144.265-.37.55-.676.855-.354.335-.607.554-.76.656a.795.795 0 0 1-.437.152c-.35 0-.514-.308-.494-.924-.22.316-.425.549-.612.7a.914.914 0 0 1-.578.224c-.194 0-.36-.09-.496-.273a1.03 1.03 0 0 1-.193-.507 4.016 4.016 0 0 1-.726.583c-.224.132-.47.197-.74.197-.3 0-.543-.096-.727-.288a.978.978 0 0 1-.257-.524v.004c-.3.276-.564.48-.79.611a1.295 1.295 0 0 1-.649.197.693.693 0 0 1-.571-.275c-.145-.183-.218-.43-.218-.739 0-.464.101-1.02.302-1.67.201-.65.445-1.25.733-1.797l.842-.312a.21.21 0 0 1 .06-.013c.063 0 .116.047.157.14.04.095.061.221.061.38 0 .451-.104.888-.312 1.31-.207.422-.532.873-.974 1.352-.018.23-.027.388-.027.474 0 .193.036.345.106.458.071.113.165.169.282.169a.71.71 0 0 0 .382-.13c.132-.084.333-.26.602-.523.028-.418.187-.798.482-1.142.324-.38.685-.569 1.08-.569.206 0 .37.054.494.16a.524.524 0 0 1 .186.417c0 .458-.486.829-1.459 1.114.088.43.32.646.693.646a.807.807 0 0 0 .417-.117c.129-.076.321-.243.575-.497.032-.252.118-.495.259-.728.182-.3.416-.544.701-.73.285-.185.537-.278.756-.278.276 0 .47.127.58.381l.677-.374h.186l-.292.971c-.15.488-.226.823-.226 1.004 0 .19.067.285.202.285.086 0 .181-.045.285-.137.104-.092.25-.232.437-.42v.001c.143-.155.274-.32.392-.494-.19-.084-.285-.21-.285-.375 0-.17.058-.352.174-.545.116-.194.275-.29.479-.29.172 0 .258.088.258.265 0 .139-.05.338-.149.596.367-.04.687-.32.961-.842l.228-.01c1.059-2.438.828-5.075-.83-6.732-1.019-1.02-2.408-1.5-3.895-1.471zm4.725 8.203a8.938 8.938 0 0 1-1.333 2.151 1.09 1.09 0 0 0-.012.147c0 .168.047.309.14.423.092.113.206.17.34.17.296 0 .714-.264 1.254-.787-.001.04-.003.08-.003.121 0 .146.012.368.036.666l.733-.172c0-.2.003-.357.01-.474.01-.157.033-.33.066-.517.02-.11.07-.216.152-.315l.186-.216a5.276 5.276 0 0 1 .378-.397c.062-.055.116-.099.162-.13a.26.26 0 0 1 .123-.046c.055 0 .083.035.083.106 0 .07-.052.236-.156.497-.194.486-.292.848-.292 1.084 0 .175.046.314.136.418a.45.45 0 0 0 .358.155c.365 0 .803-.269 1.313-.808v-.381c-.361.426-.623.64-.784.64-.109 0-.163-.067-.163-.2 0-.1.065-.316.195-.65.19-.486.285-.836.285-1.048a.464.464 0 0 0-.112-.319.36.36 0 0 0-.282-.127c-.165 0-.354.077-.567.233-.213.156-.5.436-.863.84.053-.262.165-.622.335-1.08l-.809.156a6.54 6.54 0 0 0-.399 1.074c-.04.156-.07.316-.092.48a7.447 7.447 0 0 1-.49.45.38.38 0 0 1-.229.08.208.208 0 0 1-.174-.082.352.352 0 0 1-.064-.222c0-.1.019-.214.056-.343.038-.13.12-.373.249-.731l.308-.849zm-17.21-2.927c-.863-.016-1.67.263-2.261.854-1.352 1.352-1.07 3.827.631 5.527 1.7 1.701 4.95 1.21 5.527.632.467-.466 1.07-3.827-.631-5.527-.957-.957-2.158-1.465-3.267-1.486zm12.285.358h.166v.21H15.4zm.427 0h.166v.865l.46-.455h.195l-.364.362.428.684h-.198l-.357-.575-.164.166v.41h-.166zm1.016 0h.166v.21h-.166zm.481.122h.166v.288h.172v.135h-.172v.717c0 .037.006.062.02.075.012.013.037.02.074.02a.23.23 0 0 0 .078-.01v.141a.802.802 0 0 1-.136.014.23.23 0 0 1-.15-.043.15.15 0 0 1-.052-.123v-.79h-.141v-.136h.141zm-3.562.258c.081 0 .15.012.207.038.057.024.1.061.13.11s.045.106.045.173h-.176c-.006-.111-.075-.167-.208-.167a.285.285 0 0 0-.164.041.134.134 0 0 0-.06.117c0 .035.015.065.045.088.03.024.08.044.15.06l.16.039a.47.47 0 0 1 .224.105c.047.046.07.108.07.186a.3.3 0 0 1-.052.175.327.327 0 0 1-.152.116.585.585 0 0 1-.226.041c-.136 0-.24-.03-.309-.088-.069-.059-.105-.149-.109-.269h.176c.004.037.01.065.017.084a.166.166 0 0 0 .034.054c.044.043.112.065.204.065a.31.31 0 0 0 .177-.045.139.139 0 0 0 .067-.119.116.116 0 0 0-.038-.09.287.287 0 0 0-.124-.055l-.156-.038a1.248 1.248 0 0 1-.159-.05.359.359 0 0 1-.098-.061.22.22 0 0 1-.058-.083.32.32 0 0 1-.016-.108c0-.096.036-.174.109-.232a.45.45 0 0 1 .29-.087zm1.035 0a.46.46 0 0 1 .202.043.351.351 0 0 1 .187.212.577.577 0 0 1 .023.126h-.168a.256.256 0 0 0-.078-.168.242.242 0 0 0-.17-.06.248.248 0 0 0-.155.05.306.306 0 0 0-.1.144.662.662 0 0 0-.034.224.58.58 0 0 0 .035.214.299.299 0 0 0 .101.135.261.261 0 0 0 .157.048c.142 0 .227-.084.256-.252h.167a.519.519 0 0 1-.065.22.35.35 0 0 1-.146.138.464.464 0 0 1-.216.048.448.448 0 0 1-.246-.066.441.441 0 0 1-.161-.192.703.703 0 0 1-.057-.293c0-.085.01-.163.032-.233a.522.522 0 0 1 .095-.182.403.403 0 0 1 .15-.117.453.453 0 0 1 .191-.04zm.603.03h.166v1.046H15.4zm1.443 0h.166v1.046h-.166zm-5.05.618c-.08 0-.2.204-.356.611-.155.407-.308.977-.459 1.71.281-.312.509-.662.683-1.05.175-.387.262-.72.262-.999a.455.455 0 0 0-.036-.197c-.025-.05-.056-.075-.093-.075zm4.662 1.797c-.221 0-.431.188-.629.563-.197.376-.296.722-.296 1.038 0 .12.029.216.088.29a.273.273 0 0 0 .223.111c.221 0 .43-.188.625-.565.196-.377.294-.725.294-1.043a.457.457 0 0 0-.083-.29.269.269 0 0 0-.222-.104zm-2.848.007c-.146 0-.285.11-.417.333-.133.222-.2.51-.2.866.566-.159.849-.452.849-.881 0-.212-.077-.318-.232-.318Z"/></svg></span>scikit-learn</span>
+          <span class="cap-tool"><span class="cap-logo pandas"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.922 0h2.623v18.104h-2.623zm-4.126 12.94h2.623v2.57h-2.623zm0-7.037h2.623v5.446h-2.623zm0 11.197h2.623v5.446h-2.623zM4.456 5.896h2.622V24H4.455zm4.213 2.559h2.623v2.57H8.67zm0 4.151h2.623v5.447H8.67zm0-11.187h2.623v5.446H8.67Z"/></svg></span>Pandas</span>
+          <span class="cap-tool"><span class="cap-logo py"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/></svg></span>Python</span>
         </div>
       </button>
       <div class="cap-details" id="cap-details-5" role="region" aria-labelledby="cap-btn-5">
@@ -525,8 +607,7 @@
 </section>
     <section id="contact" class="section">
       <div class="card card-hover border border-slate-800/80 p-8 sm:p-10">
-        <h2 class="section-title" data-eyebrow="Contact">Contact</h2>
-        <h3 class="mt-5 max-w-2xl text-h2 font-semibold leading-snug text-white">Bring a difficult industrial system into focus.</h3>
+        <h2 class="section-title mb-0 max-w-2xl leading-snug" data-eyebrow="Contact">Bring a difficult industrial system into focus.</h2>
         <p class="mt-4 max-w-2xl text-sm leading-relaxed text-slate-400">
           If you are working on digital twins, industrial visualisation, XR training, or real-time systems with awkward data behind them, email is the fastest way to reach me.
         </p>
@@ -607,6 +688,84 @@
         }
       });
     });
+
+    // Lazy Load Video on Scroll via Intersection Observer
+    const lazyVideos = document.querySelectorAll('video.lazy-video');
+    if ('IntersectionObserver' in window) {
+      const videoObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const video = entry.target;
+            if (video.dataset.src && !video.src) {
+              video.src = video.dataset.src;
+              video.load();
+            }
+            observer.unobserve(video);
+          }
+        });
+      }, { rootMargin: '200px 0px' });
+
+      lazyVideos.forEach((video) => videoObserver.observe(video));
+    } else {
+      lazyVideos.forEach((video) => {
+        if (video.dataset.src) {
+          video.src = video.dataset.src;
+        }
+      });
+    }
+
+    // Carousel Controller (Active with 1 or more slides)
+    const toolTabs = document.querySelectorAll('.tool-tab-btn');
+    const toolSlides = document.querySelectorAll('.tool-slide');
+    const toolCounter = document.getElementById('tool-slide-counter');
+    const toolPrevBtn = document.getElementById('tool-prev-btn');
+    const toolNextBtn = document.getElementById('tool-next-btn');
+
+    if (toolSlides.length > 0) {
+      let currentToolSlide = 0;
+      const updateToolSlide = (index) => {
+        currentToolSlide = (index + toolSlides.length) % toolSlides.length;
+        toolSlides.forEach((slide, i) => {
+          const isActive = i === currentToolSlide;
+          slide.classList.toggle('hidden', !isActive);
+        });
+        toolTabs.forEach((tab, i) => {
+          const isActive = i === currentToolSlide;
+          tab.setAttribute('aria-selected', String(isActive));
+          if (isActive) {
+            tab.classList.add('border-accent', 'bg-accent/10', 'text-accent', 'font-medium');
+            tab.classList.remove('border-border', 'bg-surface', 'text-text-secondary');
+          } else {
+            tab.classList.remove('border-accent', 'bg-accent/10', 'text-accent', 'font-medium');
+            tab.classList.add('border-border', 'bg-surface', 'text-text-secondary');
+          }
+        });
+        if (toolCounter) {
+          toolCounter.textContent = `Slide ${currentToolSlide + 1} of ${toolSlides.length}`;
+        }
+      };
+
+      toolTabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+          const slideIndex = parseInt(tab.dataset.slide, 10);
+          updateToolSlide(slideIndex);
+        });
+      });
+
+      if (toolSlides.length > 1) {
+        if (toolPrevBtn && toolNextBtn) {
+          toolPrevBtn.disabled = false;
+          toolPrevBtn.classList.remove('opacity-40', 'cursor-not-allowed', 'text-slate-500');
+          toolPrevBtn.classList.add('text-slate-300', 'hover:border-accent', 'hover:text-white');
+          toolNextBtn.disabled = false;
+          toolNextBtn.classList.remove('opacity-40', 'cursor-not-allowed', 'text-slate-500');
+          toolNextBtn.classList.add('text-slate-300', 'hover:border-accent', 'hover:text-white');
+
+          toolPrevBtn.addEventListener('click', () => updateToolSlide(currentToolSlide - 1));
+          toolNextBtn.addEventListener('click', () => updateToolSlide(currentToolSlide + 1));
+        }
+      }
+    }
   </script>
   <script src="js/ambient-dither.js" defer></script>
 </body>

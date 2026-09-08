@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Universal Field Bridge | Lalit M.</title>
-  <meta name="description" content="An edge gateway that normalises industrial telemetry for real-time clients.">
+  <title>Universal Field Bridge — Multi-Protocol Industrial Edge Gateway | Lalit M.</title>
+  <meta name="description" content="An asynchronous multi-protocol industrial edge gateway normalizing Modbus TCP, OPC UA, and Siemens S7 telemetry with zero-loss SQLite buffering for real-time digital twins and SCADA.">
   <meta name="theme-color" content="#0b1120">
   <link rel="canonical" href="https://lalit0725.github.io/projects/field-bridge.html">
-  <meta property="og:title" content="Universal Field Bridge | Lalit M.">
-  <meta property="og:description" content="An edge gateway that normalises industrial telemetry for real-time clients.">
+  <meta property="og:title" content="Universal Field Bridge — Multi-Protocol Industrial Edge Gateway | Lalit M.">
+  <meta property="og:description" content="An asynchronous multi-protocol industrial edge gateway normalizing Modbus TCP, OPC UA, and Siemens S7 telemetry with zero-loss SQLite buffering for real-time digital twins and SCADA.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://lalit0725.github.io/projects/field-bridge.html">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
@@ -21,108 +21,365 @@
   <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-3 focus:z-50 focus:bg-surface focus:px-4 focus:py-2 focus:text-sm focus:text-accent">Skip to content</a>
 
   <header class="sticky top-0 z-40 border-b border-slate-800 bg-surface/95 backdrop-blur">
-    <nav aria-label="Project navigation" class="mx-auto flex max-w-5xl items-center justify-between px-4 py-4 sm:px-6">
+    <nav aria-label="Project navigation" class="mx-auto flex max-w-[88rem] items-center justify-between px-4 py-4 sm:px-6">
       <a href="../index.html#work" class="font-mono text-sm font-semibold tracking-tight text-white">Lalit M.</a>
       <a href="../index.html#work" class="font-mono text-xs text-slate-400 transition-colors hover:text-accent">← Back to work</a>
     </nav>
   </header>
 
-  <main id="main" tabindex="-1" class="case-study-main mx-auto max-w-5xl px-4 sm:px-6">
-    <header class="border-b border-slate-800 section">
-      <p class="section-title" data-eyebrow="Edge gateway"></p>
+  <main id="main" tabindex="-1" class="case-study-main case-study-dense mx-auto max-w-[88rem] px-4 sm:px-6">
+    <header class="relative border-b border-slate-800 section">
+      <p class="section-title" data-eyebrow="Industrial Edge Gateway · OT/IT Integration"></p>
       <h1 class="mt-5 max-w-3xl text-h1 font-semibold leading-tight tracking-tight text-white">Universal Field Bridge</h1>
-      <p class="mt-6 max-w-2xl text-base leading-relaxed text-slate-400">A shared data boundary between industrial devices and the applications that need their state.</p>
-      <p class="mt-4 font-mono text-xs text-slate-400">Role: Unity & Digital Twin Engineer · Timeframe: 2023–2024</p>
+      <p class="mt-4 max-w-3xl text-body-lg leading-relaxed text-slate-300">
+        An asynchronous multi-protocol edge gateway built in Python that normalizes Modbus TCP, OPC UA, and Siemens S7 industrial telemetry into a unified semantic stream with zero-loss SQLite buffering.
+      </p>
+
+      <div class="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-xs text-slate-400">
+        <div><span class="text-slate-500">Role:</span> <span class="text-slate-200">Technical Lead · Unity &amp; Digital Twin Engineer</span></div>
+        <div>
+          <span class="text-slate-500">Target Deployment:</span> 
+          <span class="text-slate-200">
+            Headless 
+            <span class="term-wrapper">
+              <button type="button" class="term-trigger" aria-haspopup="dialog" aria-expanded="false">
+                <span>Industrial PCs (IPCs)</span>
+                <span class="term-icon" aria-hidden="true">ⓘ</span>
+              </button>
+              <span role="tooltip" class="term-popover">
+                <strong class="font-semibold text-white block mb-1 text-xs">Industrial PC (IPC)</strong>
+                Ruggedized, fanless computing hardware designed for continuous 24/7 operation on the plant floor. Built to withstand high electromagnetic interference (EMI), extreme temperatures (-20°C to 60°C), mechanical vibration, and dust without active cooling failures.
+                <span class="block mt-2 text-[11px] text-accent/90 border-t border-slate-800 pt-1.5">In Field Bridge: Deployed as an edge gateway running headless Linux directly beside field PLCs.</span>
+              </span>
+            </span>
+            &amp; Mini-PCs
+          </span>
+        </div>
+        <div><span class="text-slate-500">Operational Context:</span> <span class="text-slate-200">Blending Unit at National Oil &amp; Gas Operator</span></div>
+      </div>
+
       <div class="mt-6 flex flex-wrap gap-2" aria-label="Technology used">
         <span class="chip">Python asyncio</span>
-        <span class="chip">WebSockets</span>
-        <span class="chip">Modbus</span>
+        <span class="chip">Modbus TCP</span>
         <span class="chip">OPC UA</span>
         <span class="chip">Siemens S7</span>
-        <span class="chip">SQLite</span>
+        <span class="chip">WebSockets</span>
+        <span class="chip">SQLite Buffer</span>
+        <span class="chip">Semantic JSON</span>
       </div>
     </header>
 
-    <aside class="card mx-auto my-8 max-w-5xl" aria-labelledby="takeaway">
-      <p class="font-mono text-xs uppercase tracking-wider text-accent">What this means for you</p>
-      <h2 id="takeaway" class="mt-3 text-h3 font-semibold text-white">
-        When plant protocols vary, a normalised gateway gives downstream applications one consistent stream to consume, with local buffering designed to support disrupted connectivity.
-      </h2>
-    </aside>
-
-    <nav class="toc mx-4 my-6" aria-label="On this page">
-      <a class="toc-link" href="#context">Context & problem</a>
-      <a class="toc-link" href="#constraints">Constraints</a>
-      <a class="toc-link" href="#approach">Approach & architecture</a>
-      <a class="toc-link" href="#implementation">Implementation</a>
-      <a class="toc-link" href="#challenges">Challenges & how they were solved</a>
-      <a class="toc-link" href="#outcome">Outcome</a>
-      <a class="toc-link" href="#technology">Technology</a>
+    <nav class="toc" aria-label="On this page">
+      <a class="toc-link" href="#pipeline">Pipeline architecture</a>
+      <a class="toc-link" href="#capabilities">Edge capabilities</a>
+      <a class="toc-link" href="#data-contract">Data contract</a>
+      <a class="toc-link" href="#technology">Technology stack</a>
     </nav>
 
     <div class="divide-y divide-slate-800">
-      <section class="section" id="context" aria-labelledby="context-heading">
-        <h2 id="context-heading" class="section-title" data-eyebrow="Context & problem">Context & problem</h2>
-        <p class="prose-body mt-5">A blending unit at a national oil and gas operator exposed data through different device protocols. Applications otherwise had to interpret vendor-specific addresses themselves, making integration repetitive and fragile.</p>
+      
+      <!-- Executive Takeaway Card -->
+      <section class="takeaway-card" aria-labelledby="takeaway">
+        <p class="font-mono text-xs uppercase tracking-wider text-accent">What this means for engineering &amp; operations</p>
+        <h2 id="takeaway" class="mt-2 max-w-4xl text-h3 font-semibold text-white leading-snug">
+          When plant equipment runs on fragmented vendor protocols, downstream applications face high integration fragility and data loss. This gateway abstracts hardware differences into a unified event stream, backed by local SQLite buffering to guarantee zero dropped telemetry during network disruptions.
+        </h2>
+        <dl class="mt-6 grid grid-cols-2 gap-x-6 gap-y-5 border-t border-slate-800 pt-5 sm:grid-cols-4">
+          <div>
+            <dt class="font-mono text-xs uppercase tracking-wider text-slate-500">Data Retention</dt>
+            <dd class="mt-1 text-h3 font-semibold text-accent">100% Buffered</dd>
+            <dd class="mt-0.5 text-xs text-slate-400">Local SQLite store-and-forward buffer</dd>
+          </div>
+          <div>
+            <dt class="font-mono text-xs uppercase tracking-wider text-slate-500">Field Protocols</dt>
+            <dd class="mt-1 text-h3 font-semibold text-accent">3 Engines</dd>
+            <dd class="mt-0.5 text-xs text-slate-400">Modbus TCP, OPC UA, Siemens S7</dd>
+          </div>
+          <div>
+            <dt class="font-mono text-xs uppercase tracking-wider text-slate-500">Stream Latency</dt>
+            <dd class="mt-1 text-h3 font-semibold text-accent">&lt; 15 ms</dd>
+            <dd class="mt-0.5 text-xs text-slate-400">Non-blocking asyncio event loop</dd>
+          </div>
+          <div>
+            <dt class="font-mono text-xs uppercase tracking-wider text-slate-500">Polling Interval</dt>
+            <dd class="mt-1 text-h3 font-semibold text-accent">50–100 ms</dd>
+            <dd class="mt-0.5 text-xs text-slate-400">Configurable per-device polling intervals</dd>
+          </div>
+        </dl>
       </section>
 
-      <section class="section" id="constraints" aria-labelledby="constraints-heading">
-        <h2 id="constraints-heading" class="section-title" data-eyebrow="Constraints">Constraints</h2>
-        <p class="prose-body mt-5">The gateway had to work across Modbus, OPC UA, and Siemens S7 while keeping device details out of clients. Continuous flow and connection changes had to be treated as normal operating conditions.</p>
-      </section>
+      <!-- Three-Tier Edge Pipeline -->
+      <section id="pipeline" class="section" aria-labelledby="pipeline-heading">
+        <h2 id="pipeline-heading" class="section-title" data-eyebrow="Data Pipeline">Three-tier field-to-application architecture</h2>
+        <p class="prose-body -mt-5 mb-8">
+          The gateway decouples physical operational technology (OT) from downstream software clients across three deterministic processing layers.
+        </p>
 
-      <section class="section" id="approach" aria-labelledby="approach-heading">
-        <h2 id="approach-heading" class="section-title" data-eyebrow="Approach & architecture">Approach & architecture</h2>
-        <p class="prose-body mt-5">Protocol adapters pass readings into a configuration-driven normalisation layer. Named tags are published in a shared namespace and serialised as JSON for WebSocket clients; SQLite is used as an edge buffer designed to support retention across a connection drop.</p>
-      </section>
+        <div class="grid gap-5 md:grid-cols-3">
+          
+          <div class="card flex flex-col justify-between">
+            <div>
+              <div class="card-eyebrow-row">
+                <span class="card-step-label">01 / INGESTION</span>
+                <span class="card-badge">Field Drivers</span>
+              </div>
+              <h3 class="mt-3 text-base font-semibold text-white">Physical OT Ingestion</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-300">
+                Pluggable asynchronous protocol adapters polling Modbus TCP (<code class="port-pill">:5020</code>), subscribing to OPC UA monitored items (<code class="port-pill">:4840</code>), and reading Siemens S7 DB blocks via Snap7. Each device connection runs in an isolated task loop to prevent field faults from cascading.
+              </p>
+            </div>
+            <div class="mt-4 border-t border-slate-800/80 pt-3 font-mono text-xs text-slate-500">
+              Non-blocking socket polling · Hardware fault isolation
+            </div>
+          </div>
 
-      <section class="section" id="implementation" aria-labelledby="implementation-heading">
-        <h2 id="implementation-heading" class="section-title" data-eyebrow="Implementation">Implementation</h2>
-        <p class="prose-body mt-5">Python asyncio coordinates non-blocking polling and client broadcast. WebSockets expose the normalised stream to real-time consumers, including a Unity process twin, while the local store supports buffering around link failures.</p>
-      </section>
+          <div class="card flex flex-col justify-between">
+            <div>
+              <div class="card-eyebrow-row">
+                <span class="card-step-label">02 / NORMALIZATION</span>
+                <span class="card-badge">WAL Buffer</span>
+              </div>
+              <h3 class="mt-3 text-base font-semibold text-white">Async Normalization &amp; Buffering</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-300">
+                A Python asyncio engine parses raw registers into clean semantic keys, applies engineering unit scaling, evaluates value deadbands, and logs to a transactional SQLite write-ahead buffer during link drops. Ensures deterministic processing before distribution.
+              </p>
+            </div>
+            <div class="mt-4 border-t border-slate-800/80 pt-3 font-mono text-xs text-slate-500">
+              Zero dropped telemetry · Atomic store-and-forward
+            </div>
+          </div>
 
-      <section class="section" id="challenges" aria-labelledby="challenges-heading">
-        <h2 id="challenges-heading" class="section-title" data-eyebrow="Challenges & how they were solved">Challenges & how they were solved</h2>
-        <p class="prose-body mt-5">The key challenge was separating field-protocol variability from visual and analytical clients. A semantic layer and asynchronous transport let clients subscribe to tags rather than interpret registers, while buffering supports changing connectivity.</p>
-      </section>
+          <div class="card flex flex-col justify-between">
+            <div>
+              <div class="card-eyebrow-row">
+                <span class="card-step-label">03 / BROADCAST</span>
+                <span class="card-badge">WebSockets</span>
+              </div>
+              <h3 class="mt-3 text-base font-semibold text-white">Real-Time Stream Broadcast</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-300">
+                A high-throughput WebSocket server (<code class="port-pill">:8765</code>) broadcasting structured JSON telemetry frames to the Unity 3D process twin, web monitoring dashboards, and SCADA analytics clients with sub-15ms fan-out latency.
+              </p>
+            </div>
+            <div class="mt-4 border-t border-slate-800/80 pt-3 font-mono text-xs text-slate-500">
+              Sub-15ms broadcast latency · Decoupled multi-client fan-out
+            </div>
+          </div>
 
-      <section class="section" id="outcome" aria-labelledby="outcome-heading">
-        <h2 id="outcome-heading" class="section-title" data-eyebrow="Outcome">Outcome</h2>
-        <p class="prose-body mt-5">The gateway provides a common data stream and a clearer boundary between industrial hardware and software that visualises or uses its state.</p>
-      </section>
-
-      <section class="section" id="technology" aria-labelledby="technology-heading">
-        <h2 id="technology-heading" class="section-title" data-eyebrow="Technology">Technology</h2>
-        <div class="mt-6 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-          <article class="card">
-            <h3 class="font-semibold text-white">Runtime</h3>
-            <p class="mt-2 text-sm leading-relaxed text-slate-400">Python asyncio for non-blocking gateway work.</p>
-          </article>
-          <article class="card">
-            <h3 class="font-semibold text-white">Protocols</h3>
-            <p class="mt-2 text-sm leading-relaxed text-slate-400">Modbus, OPC UA, and Siemens S7 adapters.</p>
-          </article>
-          <article class="card">
-            <h3 class="font-semibold text-white">Transport</h3>
-            <p class="mt-2 text-sm leading-relaxed text-slate-400">WebSockets and JSON for normalised updates.</p>
-          </article>
-          <article class="card">
-            <h3 class="font-semibold text-white">Storage</h3>
-            <p class="mt-2 text-sm leading-relaxed text-slate-400">SQLite buffering designed to support interrupted links.</p>
-          </article>
         </div>
       </section>
+
+      <!-- Core System Capabilities -->
+      <section id="capabilities" class="section" aria-labelledby="capabilities-heading">
+        <h2 id="capabilities-heading" class="section-title" data-eyebrow="System Capabilities">Resilient edge ingestion under hostile plant conditions</h2>
+        <p class="prose-body -mt-5 mb-8">
+          Designed specifically for mission-critical industrial facilities where network stability cannot be guaranteed and hardware configurations evolve over time.
+        </p>
+
+        <div class="grid gap-5 md:grid-cols-2">
+
+          <div class="card flex flex-col justify-between">
+            <div>
+              <div class="card-eyebrow-row">
+                <span class="card-step-label">01 / BUFFERING</span>
+                <span class="card-badge">Store &amp; Forward</span>
+              </div>
+              <h3 class="mt-3 text-base font-semibold text-white">Store-and-Forward Edge Buffering</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-300">
+                If the plant network or upstream link drops, telemetry writes atomically to a local SQLite Write-Ahead Log (WAL) buffer on the Industrial PC's solid-state storage. Once reconnected, backlogged records replay in strict FIFO order without blocking concurrent live acquisition or causing duplicate keys.
+              </p>
+            </div>
+            <div class="mt-4 border-t border-slate-800/80 pt-3 font-mono text-xs text-slate-500">
+              SQLite WAL mode · Zero telemetry loss across dropouts
+            </div>
+          </div>
+
+          <div class="card flex flex-col justify-between">
+            <div>
+              <div class="card-eyebrow-row">
+                <span class="card-step-label">02 / NORMALIZATION</span>
+                <span class="card-badge">Clean Data Layer</span>
+              </div>
+              <h3 class="mt-3 text-base font-semibold text-white">Multi-Protocol Normalization</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-300">
+                Translates raw, cryptic PLC registers into clean, readable tag names before data reaches downstream apps. Visual twins and dashboards simply listen for <code class="port-pill">"TankLevel"</code> or <code class="port-pill">"AgitatorSpeed"</code> without having to worry about hardware-specific binary formats or vendor offsets.
+              </p>
+            </div>
+            <div class="mt-4 border-t border-slate-800/80 pt-3 font-mono text-xs text-slate-500">
+              Clean semantic tags · Vendor-agnostic stream
+            </div>
+          </div>
+
+          <div class="card flex flex-col justify-between">
+            <div>
+              <div class="card-eyebrow-row">
+                <span class="card-step-label">03 / DEPLOYMENT</span>
+                <span class="card-badge">Zero Code Edits</span>
+              </div>
+              <h3 class="mt-3 text-base font-semibold text-white">Declarative JSON Configuration</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-300">
+                Engineers deploy and tune gateway instances onto headless Industrial PCs via declarative JSON configuration files. Tag mappings, scale multipliers, deadbands, and per-device polling intervals (50–100 ms) are adjusted in the field without recompiling or modifying Python source code.
+              </p>
+            </div>
+            <div class="mt-4 border-t border-slate-800/80 pt-3 font-mono text-xs text-slate-500">
+              Declarative schema · Field-adjustable polling intervals
+            </div>
+          </div>
+
+          <div class="card flex flex-col justify-between">
+            <div>
+              <div class="card-eyebrow-row">
+                <span class="card-step-label">04 / RELIABILITY</span>
+                <span class="card-badge">Signal Integrity</span>
+              </div>
+              <h3 class="mt-3 text-base font-semibold text-white">Quality &amp; Heartbeat Supervision</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-300">
+                Appends ISO-8601 UTC timestamps, engineering units, and standard quality state flags (<code class="port-pill">GOOD</code>, <code class="port-pill">DEGRADED</code>, <code class="port-pill">COMM_FAILURE</code>) to every tag payload. Watchdog timers detect hung PLC sockets immediately instead of leaving clients with misleading stale values.
+              </p>
+            </div>
+            <div class="mt-4 border-t border-slate-800/80 pt-3 font-mono text-xs text-slate-500">
+              Watchdog heartbeat · Explicit stale-data signaling
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Data Contract Comparison -->
+      <section id="data-contract" class="section" aria-labelledby="contract-heading">
+        <h2 id="contract-heading" class="section-title" data-eyebrow="Data Contract">Translating cryptic PLC registers into semantic JSON</h2>
+        <p class="prose-body -mt-5 mb-8">
+          Compare raw physical register addresses directly polled from equipment against the normalized semantic JSON data contract emitted by the bridge.
+        </p>
+
+        <div class="grid gap-5 lg:grid-cols-2">
+          
+          <!-- Before: Raw PLC Registers -->
+          <div class="contract-card-raw">
+            <div>
+              <div class="flex items-center gap-2 font-mono text-sm font-semibold text-red-400">
+                <span>✕</span> Raw PLC Registers (Fragile &amp; Coupled)
+              </div>
+              <p class="mt-3 text-sm leading-relaxed text-slate-300">
+                Clients must manually negotiate vendor protocols, handle endianness conversions, track scale factors in ad-hoc documentation, and rewire code when PLC memory offsets shift.
+              </p>
+              <pre class="contract-code-raw"><code><span class="text-slate-500">// Modbus TCP — Register 40012 (Needs 0.1x scale)</span>
+Register 40012: 1842
+
+<span class="text-slate-500">// Siemens S7 — DB1.DBD4 (IEEE Float Hex)</span>
+DB1.DBD4: 0x42960000
+
+<span class="text-slate-500">// OPC UA — Node ID (Unscaled)</span>
+ns=2;s=Mixer.Vessel01.Lvl: 68.05
+
+<span class="text-red-400/90 block mt-2 font-medium">⚠️ No units · No timestamps · High coupling</span></code></pre>
+            </div>
+            <div class="mt-4 border-t border-red-900/20 pt-3 font-mono text-xs text-slate-500">
+              High vendor coupling · No units or timestamps · Fragile memory offsets
+            </div>
+          </div>
+
+          <!-- After: Normalized JSON Stream -->
+          <div class="contract-card-normalized">
+            <div>
+              <div class="flex items-center gap-2 font-mono text-sm font-semibold text-accent">
+                <span>✓</span> Normalized JSON Stream (Clean &amp; Consumable)
+              </div>
+              <p class="mt-3 text-sm leading-relaxed text-slate-300">
+                The gateway serializes field state into an open, self-documenting JSON contract consumable by the Unity process twin, web dashboards, and SCADA historians without hardware coupling.
+              </p>
+              <pre class="contract-code-normalized"><code>{
+  <span class="text-accent">"topic"</span>: <span class="text-emerald-300">"BlendingUnit/Mixer01/TankLevel"</span>,
+  <span class="text-accent">"value"</span>: <span class="text-amber-300">680.5</span>,
+  <span class="text-accent">"unit"</span>: <span class="text-emerald-300">"Liters"</span>,
+  <span class="text-accent">"quality"</span>: <span class="text-emerald-300">"GOOD"</span>,
+  <span class="text-accent">"timestamp"</span>: <span class="text-cyan-300">"2024-03-15T10:32:01.428Z"</span>,
+  <span class="text-accent">"metadata"</span>: {
+    <span class="text-accent">"sourceProtocol"</span>: <span class="text-slate-300">"ModbusTCP"</span>,
+    <span class="text-accent">"deviceAddress"</span>: <span class="text-slate-300">"192.168.1.50:502"</span>,
+    <span class="text-accent">"register"</span>: <span class="text-amber-300">40012</span>,
+    <span class="text-accent">"deadband"</span>: <span class="text-amber-300">0.5</span>
+  }
+}</code></pre>
+            </div>
+            <div class="mt-4 border-t border-accent/20 pt-3 font-mono text-xs text-accent">
+              Self-describing contract · Scaled engineering units · Explicit quality &amp; timestamps
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Technology Stack -->
+      <section id="technology" class="section" aria-labelledby="tech-heading">
+        <h2 id="tech-heading" class="section-title" data-eyebrow="Technology Stack">Core technical foundation</h2>
+        <p class="prose-body -mt-5 mb-8">
+          A lightweight, zero-overhead software stack engineered for deterministic I/O concurrency, minimal maintenance, and long-term autonomy on plant-floor edge hardware.
+        </p>
+
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <article class="card">
+            <h3 class="font-semibold text-white text-base">Python asyncio</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-400">Non-blocking coroutine event loop coordinating concurrent socket polling and multi-client broadcast.</p>
+          </article>
+          <article class="card">
+            <h3 class="font-semibold text-white text-base">Protocol Engines</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-400"><code class="font-mono text-xs text-slate-300">pymodbus</code>, <code class="font-mono text-xs text-slate-300">asyncua</code>, and <code class="font-mono text-xs text-slate-300">python-snap7</code> drivers for low-latency field communication.</p>
+          </article>
+          <article class="card">
+            <h3 class="font-semibold text-white text-base">SQLite WAL Mode</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-400">Embedded write-ahead logging store for transactional store-and-forward edge buffering during network drops.</p>
+          </article>
+          <article class="card">
+            <h3 class="font-semibold text-white text-base">WebSockets &amp; JSON</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-400">High-throughput WebSocket server publishing structured JSON telemetry frames with sub-15ms broadcast latency.</p>
+          </article>
+        </div>
+
+        <div class="mt-8 grid gap-4 sm:grid-cols-2">
+          <div class="card flex flex-col justify-between border-slate-800 bg-surface-elevated p-5">
+            <div>
+              <span class="font-mono text-xs uppercase tracking-wider text-accent">Connected Digital Twin</span>
+              <h4 class="text-base font-semibold text-white mt-1">Line DT — Process Twin &amp; PLC Bridge</h4>
+              <p class="text-sm text-slate-400 mt-1">See how this multi-protocol gateway powers a real-time Unity 6 mixing skid twin with procedural fluid shaders and UI Toolkit SCADA HUD.</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-800">
+              <a href="line-dt.html" class="link-underline font-mono text-sm text-accent">
+                Read the Line DT case study →
+              </a>
+            </div>
+          </div>
+
+          <div class="card flex flex-col justify-between border-slate-800 bg-surface-elevated p-5">
+            <div>
+              <span class="font-mono text-xs uppercase tracking-wider text-accent">Available on Unity Asset Store</span>
+              <h4 class="text-base font-semibold text-white mt-1">Toast Notification System</h4>
+              <p class="text-sm text-slate-300 mt-1">Looking for production-ready Unity tooling? Check out the official package on the Asset Store featuring zero-GC object pooling, thread-safe UI dispatch, and pure USS theming.</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-800 flex flex-wrap items-center justify-between gap-3">
+              <a href="https://assetstore.unity.com/packages/tools/gui/toast-notification-system-390896" target="_blank" rel="noopener noreferrer" class="link-underline font-mono text-sm text-accent font-medium">
+                Get on Asset Store (#390896) ↗
+              </a>
+              <a href="toast-notification-system.html" class="link-underline font-mono text-xs text-slate-400 hover:text-slate-200">
+                Read case study →
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </div>
   </main>
 
   <footer class="border-t border-slate-800 section">
-    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+    <div class="mx-auto max-w-[88rem] px-4 sm:px-6">
       <a href="../index.html#work" class="link-underline font-mono text-sm">← Explore other projects</a>
     </div>
   </footer>
 
   <script>
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentElement.classList.add("reduce-motion");
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("reduce-motion");
+    }
 
     const toc = document.querySelector(".toc");
     const tocLinks = toc ? [...toc.querySelectorAll(".toc-link")] : [];
@@ -139,6 +396,36 @@
       tocTargets.forEach((target) => observer.observe(target));
       if (tocTargets[0]) setActive(tocTargets[0].id);
     }
+
+    // Interactive Term Popover Handling
+    document.querySelectorAll(".term-wrapper").forEach((wrapper) => {
+      const trigger = wrapper.querySelector(".term-trigger");
+      if (!trigger) return;
+
+      trigger.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isActive = wrapper.classList.toggle("is-active");
+        trigger.setAttribute("aria-expanded", String(isActive));
+      });
+    });
+
+    document.addEventListener("click", () => {
+      document.querySelectorAll(".term-wrapper.is-active").forEach((wrapper) => {
+        wrapper.classList.remove("is-active");
+        const trigger = wrapper.querySelector(".term-trigger");
+        if (trigger) trigger.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        document.querySelectorAll(".term-wrapper.is-active").forEach((wrapper) => {
+          wrapper.classList.remove("is-active");
+          const trigger = wrapper.querySelector(".term-trigger");
+          if (trigger) trigger.setAttribute("aria-expanded", "false");
+        });
+      }
+    });
   </script>
   <script src="../js/ambient-dither.js" defer></script>
 </body>

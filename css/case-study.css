@@ -37,3 +37,45 @@
   border-color: #22d3ee;
   box-shadow: 0 0 35px rgba(34, 211, 238, 0.3), 0 20px 25px -5px rgba(0, 0, 0, 0.6);
 }
+
+/* Executive Takeaway Card */
+.takeaway-card {
+  @apply card my-8 max-w-5xl border-l-4 border-l-accent;
+}
+
+/* Data Contract Comparison Cards */
+.contract-card-raw {
+  @apply card flex flex-col justify-between border-red-950/40 bg-red-950/10;
+}
+
+.contract-card-normalized {
+  @apply card flex flex-col justify-between border-accent/40 bg-accent/5;
+}
+
+/* Data Contract Code Pre Blocks */
+.contract-code-raw {
+  @apply mt-4 overflow-x-auto rounded border border-red-900/30 bg-slate-950/90 p-4 font-mono text-xs leading-relaxed text-red-300/80;
+}
+
+.contract-code-normalized {
+  @apply mt-4 overflow-x-auto rounded border border-accent/20 bg-slate-950/90 p-4 font-mono text-xs leading-relaxed text-slate-200;
+}
+
+/* Hardware Port & Status Badges */
+.port-pill {
+  @apply rounded border border-slate-800 bg-slate-900 px-1 py-0.5 font-mono text-xs text-slate-200;
+}
+
+/* Card Header Eyebrow Row & Badges */
+.card-eyebrow-row {
+  @apply flex items-center justify-between gap-2;
+}
+
+.card-step-label {
+  @apply font-mono text-xs font-semibold tracking-wider text-accent shrink-0 whitespace-nowrap;
+}
+
+.card-badge {
+  @apply inline-flex items-center rounded-full border border-slate-800/90 bg-slate-900/90 px-2 py-0.5 font-mono text-[11px] leading-tight text-slate-300 shrink-0 whitespace-nowrap shadow-sm;
+}
+
